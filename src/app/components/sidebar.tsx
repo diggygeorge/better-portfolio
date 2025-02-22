@@ -1,11 +1,23 @@
+"use client";
 import * as React from 'react';
-import {Box, Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Divider, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
+import {Box, Drawer, CssBaseline, AppBar, List, Typography, Divider, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import DescriptionIcon from '@mui/icons-material/Description';
+import "../../app/globals.css";
+import {useRouter} from "next/navigation";
 
 const Sidebar: React.FC = () => {
 
+    const router = useRouter();
+
+    function Name({name}: {name: string}) {
+        return(
+        <Typography sx={{textAlign: "center", fontSize: "2rem", margin: "20px", fontFamily: "Grotesk, sans-serif"}}>
+            {name}
+        </Typography>);
+    }
+    
     const drawerWidth = 300;
 
     return (
@@ -29,13 +41,11 @@ const Sidebar: React.FC = () => {
         anchor="left"
       >
         
-        <Typography align="center" fontSize="2rem" margin="20px">
-            Daniel George
-        </Typography>
+        <Name name={"Daniel George"}/>
         <Divider />
         <List>
             <ListItem key={"Home"} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={() => router.push('/home')}>
                 <ListItemIcon>
                   <HomeSharpIcon />
                 </ListItemIcon>
@@ -43,7 +53,7 @@ const Sidebar: React.FC = () => {
               </ListItemButton>
             </ListItem>
             <ListItem key={"Projects"} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={() => router.push('/projects')}>
                 <ListItemIcon>
                   <ConstructionIcon />
                 </ListItemIcon>
@@ -51,7 +61,7 @@ const Sidebar: React.FC = () => {
               </ListItemButton>
             </ListItem>
             <ListItem key={"Resume"} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={() => router.push('/resume')}>
                 <ListItemIcon>
                   <DescriptionIcon />
                 </ListItemIcon>
