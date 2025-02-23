@@ -1,5 +1,6 @@
 import Sidebar from "../components/sidebar";
-import {Box, Toolbar, Typography} from '@mui/material';
+import {Box, Button, Toolbar, Typography} from '@mui/material';
+import DownloadIcon from '@mui/icons-material/Download';
 
 
 
@@ -14,10 +15,10 @@ export default function Home() {
           sx={{ flexGrow: 1, bgcolor: 'background.default', padding: 3 }}
           >
         <Toolbar/>
-        <Typography sx={{marginBottom: 2, align: "center"}}>
+        <Box textAlign="center">
           <iframe title="resume" src="https://drive.google.com/file/d/17s2aDBmAA6K04auBKROS8Z78SOLuZavp/preview" width="800" height="720" allow="autoplay"></iframe>
-          <a href="https://drive.google.com/file/d/17s2aDBmAA6K04auBKROS8Z78SOLuZavp/view?usp=drive_link">Hi</a>
-        </Typography>
+          <Button sx={{marginTop: "10px"}} startIcon={<DownloadIcon/>}variant="contained" href="https://drive.google.com/file/d/17s2aDBmAA6K04auBKROS8Z78SOLuZavp/view?usp=drive_link">Download</Button>
+        </Box>
       </Box>
     </Box>
     </>

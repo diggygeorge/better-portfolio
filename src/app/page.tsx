@@ -1,7 +1,8 @@
 "use client";
-import {Box, Toolbar, Typography} from '@mui/material';
+import {Box, Stack, Toolbar, Typography} from '@mui/material';
 import "../app/globals.css";
 import {useState, useEffect} from 'react';
+import {useRouter} from "next/navigation";
 
 const names : string[] = 
 ["computer scientist.", "software developer.", "karateka.", "Christian!"]
@@ -50,17 +51,23 @@ const useTypewriter = (speed = 6000) => {
 
 export default function Home() {
 
+  const router = useRouter();
   const text = useTypewriter();
 
   return (
     <>
         <Toolbar/>
-        <Typography sx={{textAlign: "center", fontSize: "5rem", fontFamily: "Grotesk, sans-serif"}}>
+        <Typography sx={{justifyContent: "center", textAlign: "center", fontSize: "5rem", fontFamily: "Grotesk, sans-serif"}}>
             Daniel George
         </Typography>
         <Typography sx={{textAlign: "center", fontSize: "2rem", fontFamily: "sans-serif"}}>
             I'm a {text}
         </Typography>
+        <Stack spacing={5} direction="row" sx={{justifyContent: "center", marginTop: "200px"}}>
+        <button className="bg-transparent hover:bg-[#1a1a1a] text-white text-3xl font-semibold py-2 px-4 border border-gray-400 rounded-3xl shadow" onClick={() => router.push('home')}>
+            Go!
+        </button>
+        </Stack>
     </>
   );
 }
