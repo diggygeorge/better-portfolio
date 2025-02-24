@@ -1,5 +1,5 @@
 "use client";
-import {Box, Stack, Toolbar, Typography} from '@mui/material';
+import {Stack, Toolbar, Typography} from '@mui/material';
 import "../app/globals.css";
 import {useState, useEffect} from 'react';
 import {useRouter} from "next/navigation";

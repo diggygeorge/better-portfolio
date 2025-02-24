@@ -1,5 +1,5 @@
 import Sidebar from "../components/sidebar";
-import {Box, Button, Toolbar, Typography} from '@mui/material';
+import {Box, Button, Toolbar} from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 
 

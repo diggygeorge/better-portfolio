@@ -6,7 +6,6 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import DescriptionIcon from '@mui/icons-material/Description';
 import "../../app/globals.css";
 import {useRouter} from "next/navigation";
-import { urlToUrlWithoutFlightMarker } from 'next/dist/client/components/router-reducer/fetch-server-response';
 
 const Sidebar: React.FC = () => {
 
