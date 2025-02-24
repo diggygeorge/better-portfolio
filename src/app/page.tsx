@@ -5,45 +5,52 @@ import {useState, useEffect} from 'react';
 import {useRouter} from "next/navigation";
 
 const names : string[] = 
-["computer scientist.", "software developer.", "karateka.", "Christian!"]
+["computer scientist. ", "software developer. ", "karateka. ", "Christian!"]
 
 const useTypewriter = (speed = 6000) => {
-  const [displayText, setDisplayText] = useState('');
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % names.length);
-    }, speed);
-
-    return () => clearInterval(timer);
-  }, [speed]);
-
-  useEffect(() => {
-    let i = displayText.length;
-    let isErasing = true;
-
-    const timer = setInterval(() => {
+    const [displayText, setDisplayText] = useState('');
+    const [index, setIndex] = useState(0);
+  
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setIndex((prevIndex) => (prevIndex + 1) % names.length);
+      }, speed);
+  
+      return () => clearInterval(timer);
+    }, [speed]);
+  
+    useEffect(() => {
+      let i = 0;
+      let empty = true;
+  
+      const typeEffect = setInterval(() => {
         setDisplayText((currText) => {
-            if (i > 0 && isErasing) {
-                i--;
-                return currText.substring(0, i);
+          if (empty) {
+            if (currText.length > 0) {
+              return currText.slice(0, -1);
             } else {
-                isErasing = false;
-                if (i < names[index].length) {
-                    i++;
-                    return currText + names[index].charAt(i - 1);
-                }
+              empty = false;
+              return "";
             }
-            return currText;
+          } else {
+            if (i < names[index].length) {
+              const nextText = names[index].slice(0, i + 1);
+              i++;
+              return nextText;
+            } else {
+              clearInterval(typeEffect);
+              return currText;
+            }
+          }
         });
-    }, 60);
-
-    return () => clearInterval(timer);
-}, [index]);
-
-  return displayText;
-};
+      }, 80);
+  
+      return () => clearInterval(typeEffect); // Cleanup on unmount or dependency change
+    }, [index]);
+  
+    return displayText;
+  };
+  
 
 
 export default function Home() {
