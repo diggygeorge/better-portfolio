@@ -21,31 +21,26 @@ const useTypewriter = (speed = 6000) => {
 
   useEffect(() => {
     let i = displayText.length;
-    let empty = true;
-    const timer = setInterval(() => {
-      if (i > 0 && empty)
-      {
-        setDisplayText((currText) => (currText.substring(0, i - 1)));
-        i--;
-      }
-      else
-      {
-        empty = false;
-        if (i < names[index].length)
-        {
-           setDisplayText((prevText) => (prevText + names[index].charAt(i)));
-           i++;
-        }
-        else
-        {
-           setDisplayText((currText) => (currText));
+    let isErasing = true;
 
-        }
-      }
-    }, 60)
+    const timer = setInterval(() => {
+        setDisplayText((currText) => {
+            if (i > 0 && isErasing) {
+                i--;
+                return currText.substring(0, i);
+            } else {
+                isErasing = false;
+                if (i < names[index].length) {
+                    i++;
+                    return currText + names[index].charAt(i - 1);
+                }
+            }
+            return currText;
+        });
+    }, 60);
+
     return () => clearInterval(timer);
-  }, [index]
-);
+}, [index]);
 
   return displayText;
 };
