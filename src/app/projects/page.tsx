@@ -18,7 +18,7 @@ export default function Home() {
                         <img src="/nutritionimg.jpg" alt="BU Food Tracker" className="w-full transition-all duration-250 ease-in-out group-hover:brightness-[0.50]"/>
                         <Box className="absolute w-0.8 font-medium top-[15%] left-1/2 -translate-x-1/2 text-[30px] m-auto text-white text-center opacity-0 transition-opacity duration-250 ease-in-out group-hover:opacity-100">
                             <span className="underline">BU Food Tracker</span>
-                            <Typography>Nutrition calculator for Boston University's dining halls.</Typography>
+                            <Typography>Nutrition calculator for all dining halls at Boston University.</Typography>
                             <Typography>Made with Next.js, Mantine, Typescript, and MongoDB.  Deployed on Vercel</Typography>
                         </Box>
                     </a>

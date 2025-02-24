@@ -43,7 +43,9 @@ const useTypewriter = (speed = 6000) => {
         }
       }
     }, 60)
-  }, [index]);
+    return () => clearInterval(timer);
+  }, [index]
+);
 
   return displayText;
 };
