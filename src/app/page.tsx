@@ -45,7 +45,7 @@ const useTypewriter = (speed = 6000) => {
         });
       }, 80);
   
-      return () => clearInterval(typeEffect); // Cleanup on unmount or dependency change
+      return () => clearInterval(typeEffect);
     }, [index]);
   
     return displayText;

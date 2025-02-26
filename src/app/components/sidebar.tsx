@@ -70,6 +70,17 @@ const Sidebar: React.FC = () => {
             </ListItem>
         </List>
         <Divider />
+        <Box className="pt-[20px] flex justify-evenly">
+            <a href="https://github.com/diggygeorge" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width={32} height={32} alt="Github"/>
+            </a>
+            <a href="https://linkedin.com/in/daniel-t-george/" target="_blank">
+                <img src="https://seeklogo.com/images/L/linkedin-black-icon-logo-ECC426C572-seeklogo.com.png" width={32} height={32} alt="LinkedIn"/>
+            </a>
+            <a href="https://mail.google.com/mail/u/0/?fs=1&to=dannygeorge527@gmail.com&tf=cm" target="_blank">
+                <img src="https://png.pngtree.com/png-clipart/20240720/original/pngtree-gmail-inbox-logo-with-a-little-black-frame-vector-png-image_15595991.png" width={32} height={32} alt="Gmail"/>
+            </a>
+        </Box>
       </Drawer>
     </Box>
   );

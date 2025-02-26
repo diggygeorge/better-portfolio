@@ -43,7 +43,7 @@ return (
   <Box className="flex overflow-hidden h-screen">
     <Sidebar />
     <Box component="main" sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }} className="relative flex items-center justify-center">
-      <ArrowBackIos className="absolute left-5 cursor-pointer text-gray-500 hover:text-gray-800" onClick={handlePrev}/>
+      <ArrowBackIos className={`absolute left-5 text-gray-500 hover:text-gray-800 ${index === 0 ? "opacity-0" : "cursor-pointer"}`} onClick={handlePrev}/>
       <Box className="flex flex-col items-center max-w-[663px]">
         <motion.div key={index} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration: 1.0, ease:"easeInOut"}}>
           {index < quotes.length - 1 && (
@@ -62,7 +62,7 @@ return (
         </motion.div>
       </Box>
 
-      <ArrowForwardIos className="absolute right-5 cursor-pointer text-gray-500 hover:text-gray-800" onClick={handleNext}/>
+      <ArrowForwardIos className={`absolute right-5 text-gray-500 hover:text-gray-800 ${index === quotes.length - 1 ? "opacity-0" : "cursor-pointer"}`} onClick={handleNext}/>
     </Box>
   </Box>
 </>
