@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import {useRouter} from "next/navigation";
 
 const names : string[] = 
-["computer scientist. ", "software developer. ", "programmer. ", "student. "]
+["a computer scientist. ", "a software developer. ", "a programmer. ", "a student. ", "broke. "]
 
 const useTypewriter = (speed = 6000) => {
     const [displayText, setDisplayText] = useState('');
@@ -65,7 +65,7 @@ export default function Home() {
             Daniel George
         </Typography>
         <Typography sx={{textAlign: "center", fontSize: "2rem", fontFamily: "sans-serif"}}>
-            I&apos;m a {text}
+            I&apos;m {text}
         </Typography>
         <Stack spacing={5} direction="row" sx={{justifyContent: "center", marginTop: "200px"}}>
         <button className="bg-transparent hover:bg-[#1a1a1a] text-white text-3xl font-semibold py-2 px-4 border border-gray-400 rounded-3xl shadow" onClick={() => router.push('home')}>
