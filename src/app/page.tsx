@@ -3,7 +3,6 @@ import {Stack, Toolbar, Typography} from '@mui/material';
 import "../app/globals.css";
 import {useState, useEffect} from 'react';
 import {useRouter} from "next/navigation";
-import Image from 'next/image'
 
 const names : string[] = 
 ["computer scientist. ", "software developer. ", "karateka. ", "Christian!"]
