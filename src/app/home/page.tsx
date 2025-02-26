@@ -9,7 +9,7 @@ import {motion} from 'framer-motion'
 export default function Home() {
   
   const quotes: string[][] =
-[["Welcome!  Whether you're a recruiter or just someone checking my LinkedIn or GitHub, I believe job applications don’t tell the whole story—so I aim to illustrate that here.", "/gallery/welcomepart.jpg"],
+[["Welcome!  Whether you're a recruiter or just someone checking my LinkedIn or GitHub, I believe job applications don’t tell the whole story—so here I aim to illustrate mine.", "/gallery/welcomepart.jpg"],
 ["Let’s start with introductions. My name is Daniel George, and I’m an undergraduate at Boston University, majoring in Mathematics and Computer Science.", "/gallery/college.jpg"],
 ["I've always been passionate about math—so much so that I used to have a list of numbers hanging in my bedroom!", "/gallery/kid.jpg"],
 ["Now, I’m taking my love of problem solving by exploring software engineering and machine learning. (Hint: Check out my projects!)", "/gallery/ai.jpg"],
