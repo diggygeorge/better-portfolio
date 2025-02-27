@@ -10,15 +10,8 @@ import {useRouter} from "next/navigation";
 const Sidebar: React.FC = () => {
 
     const router = useRouter();
-
-    function Name({name}: {name: string}) {
-        return(
-        <Typography sx={{textAlign: "center", fontSize: "2rem", margin: "20px", fontFamily: "Grotesk, sans-serif"}}>
-            {name}
-        </Typography>);
-    }
     
-    const drawerWidth = 300;
+    const drawerWidth = 275;
 
     return (
     <Box sx={{ display: 'flex' }}>
@@ -41,13 +34,14 @@ const Sidebar: React.FC = () => {
         anchor="left"
       >
         
-        <Name name={"Daniel George"}/>
-        <Divider />
+        <Typography sx={{textAlign: "center", fontSize: "2rem", margin: "20px", fontFamily: "Grotesk, sans-serif"}}>
+            Daniel George
+        </Typography>
         <List>
             <ListItem key={"Home"} disablePadding>
               <ListItemButton onClick={() => router.push('/home')}>
                 <ListItemIcon>
-                  <HomeSharpIcon />
+                  <HomeSharpIcon/>
                 </ListItemIcon>
                 <ListItemText primary={"Home"} />
               </ListItemButton>
@@ -69,7 +63,6 @@ const Sidebar: React.FC = () => {
               </ListItemButton>
             </ListItem>
         </List>
-        <Divider />
         <Box className="pt-[20px] flex justify-evenly">
             <a href="https://github.com/diggygeorge" target="_blank">
                 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width={32} height={32} alt="Github"/>

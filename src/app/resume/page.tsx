@@ -15,8 +15,7 @@ export default function Home() {
           >
         <Toolbar/>
         <Box textAlign="center">
-          <iframe className="block m-auto" title="resume" src="https://drive.google.com/file/d/17s2aDBmAA6K04auBKROS8Z78SOLuZavp/preview" width="800" height="1020" allow="autoplay"></iframe>
-          <Button sx={{marginTop: "10px"}} startIcon={<DownloadIcon/>}variant="contained" href="https://drive.google.com/file/d/17s2aDBmAA6K04auBKROS8Z78SOLuZavp/view?usp=drive_link">Download</Button>
+          <iframe className="block m-auto" title="resume" src="/resume/danielgeorgesweresume.pdf" width="850" height="1130" allow="autoplay"></iframe>
         </Box>
       </Box>
     </Box>

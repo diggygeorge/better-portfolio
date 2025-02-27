@@ -7,7 +7,7 @@ import {useRouter} from "next/navigation";
 const names : string[] = 
 ["a computer scientist. ", "a software developer. ", "a programmer. ", "a student. ", "broke. "]
 
-const useTypewriter = (speed = 6000) => {
+const useTypewriter = (speed = 5000) => {
     const [displayText, setDisplayText] = useState('');
     const [index, setIndex] = useState(0);
   

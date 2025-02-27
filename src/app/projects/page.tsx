@@ -1,10 +1,11 @@
 "use client";
 import Sidebar from "../components/sidebar";
-import {Box, Typography} from '@mui/material';
+import {Box, Typography, Card} from '@mui/material';
 import AspectRatio from '@mui/joy/AspectRatio';
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
 import {useRef} from 'react';
 import {useEffect} from 'react';
+import "@fontsource/montserrat";
 
 export default function Home() {
 
@@ -29,13 +30,13 @@ export default function Home() {
 
    const scroll = (direction: "left" | "right") => {
      if (scrollRef.current) {
-       const scrollAmount = 256;
+       const scrollAmount = 100;
        scrollRef.current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
-       if (direction === "right" && x < logos.length - 3)
+       if (direction === "right")
        {
         x++;
        }
-       else if (direction === "left" && x > 0)
+       else if (direction === "left")
        {
         x--;
        }
@@ -45,21 +46,21 @@ export default function Home() {
 
    useEffect(() => {
         const timer = setInterval(() => {
-        if ((x < logos.length - 1) && rightVelocity)
+        if (rightVelocity)
         {
             scroll("right");
         }
-        if (x === logos.length - 3)
+        else
+        {
+            scroll("left");
+        }
+        if (x === logos.length - 5) // # of images - # of visible images
         {
             rightVelocity = false;
         }
         if (x === 0)
         {
             rightVelocity = true;
-        }
-        else if ((x > 0) && (rightVelocity === false))
-        {
-            scroll("left");
         }
         }, 1500);
         
@@ -76,7 +77,7 @@ export default function Home() {
             component="main"
             sx={{ flexGrow: 1, bgcolor: 'background.default', padding: 3, textAlign: "center" }}
             >
-            <Typography sx={{marginBottom: 2, fontFamily:"", textDecoration: "bold", fontSize: "2rem"}}>
+            <Typography sx={{marginBottom: 2, fontFamily:"Montserrat", textDecoration: "bold", fontSize: "2rem"}}>
                 Here are my projects so far.  More to come!
             </Typography>
             <Box className="flex flex-wrap justify-center gap-8 pb-7">
@@ -101,18 +102,18 @@ export default function Home() {
                     </a>
                 </Box>
             </Box>
-            <Typography variant="h3">
+            <Typography variant="h4" sx={{fontFamily: "Montserrat", marginBottom: "10px"}}>
                 Skills:
             </Typography>
             <Box className="m-auto flex">
                 <ArrowBackIos className="pb-[1%] invisible" onClick={() => scroll("left")}/>
-                <Box ref={scrollRef} sx={{margin: "auto", display: 'flex', gap: 2, py: 1, overflow: 'hidden', width: 848, scrollSnapType: 'x mandatory', '& > *': {scrollSnapAlign: 'start'}, '::-webkit-scrollbar': { display: 'none' }}}>
-                    {logos.map((item, index) => (
-                        <AspectRatio key={index} ratio="1" sx={{ minWidth: 200 }}>
-                            <img src={item} alt="logo"/>
-                        </AspectRatio>
-                    ))}
-                </Box>
+                    <Box ref={scrollRef} sx={{display: 'flex', margin: "auto", gap: 4, py: 1, overflow: 'hidden', width:783, scrollSnapType: 'x mandatory', '& > *': {scrollSnapAlign: 'start'}, '::-webkit-scrollbar': { display: 'none' }}}>
+                        {logos.map((item, index) => (
+                            <AspectRatio key={index} ratio="1" sx={{ minWidth: 131 }}>
+                                <img src={item} alt="logo"/>
+                            </AspectRatio>
+                        ))}
+                    </Box>
                 <ArrowForwardIos className="invisible "onClick={() => scroll("right")}/>
             </Box>
         </Box>

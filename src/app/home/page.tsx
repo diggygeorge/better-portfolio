@@ -56,7 +56,7 @@ return (
               style={{ objectFit: "contain" }}
             />
           )}
-          <Typography className="pt-5 text-center text-lg">
+          <Typography variant={index === quotes.length - 1 ? "h5" : "body1"} className="pt-5 text-center text-lg">
             {quotes[index][0]}
           </Typography>
         </motion.div>
