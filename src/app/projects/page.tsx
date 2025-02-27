@@ -1,6 +1,6 @@
 "use client";
 import Sidebar from "../components/sidebar";
-import {Box, Typography, Card} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import AspectRatio from '@mui/joy/AspectRatio';
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
 import {useRef} from 'react';

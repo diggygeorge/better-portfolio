@@ -1,7 +1,5 @@
 import Sidebar from "../components/sidebar";
-import {Box, Button, Toolbar} from '@mui/material';
-import DownloadIcon from '@mui/icons-material/Download';
-
+import {Box, Toolbar} from '@mui/material';
 
 export default function Home() {
 
