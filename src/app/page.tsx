@@ -61,10 +61,10 @@ export default function Home() {
   return (
     <>
         <Toolbar/>
-        <Typography sx={{justifyContent: "center", textAlign: "center", fontSize: "5rem", fontFamily: "Grotesk, sans-serif"}}>
+        <Typography sx={{justifyContent: "center", textAlign: "center", fontSize: "5rem", color: 'E0E0E0', fontFamily: "Grotesk, sans-serif"}}>
             Daniel George
         </Typography>
-        <Typography sx={{textAlign: "center", fontSize: "2rem", fontFamily: "sans-serif"}}>
+        <Typography sx={{textAlign: "center", fontSize: "2rem", color: 'E0E0E0', fontFamily: "sans-serif"}}>
             I&apos;m {text}
         </Typography>
         <Stack spacing={5} direction="row" sx={{justifyContent: "center", marginTop: "200px"}}>

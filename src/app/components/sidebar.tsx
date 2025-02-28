@@ -5,12 +5,11 @@ import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import DescriptionIcon from '@mui/icons-material/Description';
 import "../../app/globals.css";
-import {useRouter} from "next/navigation";
+import {useRouter, usePathname} from "next/navigation";
 
 const Sidebar: React.FC = () => {
-
     const router = useRouter();
-    
+    const pathname = usePathname(); // Get current route
     const drawerWidth = 275;
 
     return (
@@ -18,7 +17,7 @@ const Sidebar: React.FC = () => {
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, bgcolor: '#121212' }}
       >
       </AppBar>
       <Drawer
@@ -28,52 +27,71 @@ const Sidebar: React.FC = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
+            bgcolor: '#1E1E1E', // Sidebar background
+            color: '#E0E0E0',  // Text color
+            boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)', 
+            backdropFilter: 'blur(10px)'
           },
         }}
         variant="permanent"
         anchor="left"
       >
         
-        <Typography sx={{textAlign: "center", fontSize: "2rem", margin: "20px", fontFamily: "Grotesk, sans-serif"}}>
+        <Typography 
+          sx={{
+            textAlign: "center", 
+            fontSize: "2rem", 
+            margin: "20px", 
+            fontFamily: "Grotesk, sans-serif",
+            color: '#E0E0E0' // White accent
+          }}>
             Daniel George
         </Typography>
+        
         <List>
-            <ListItem key={"Home"} disablePadding>
-              <ListItemButton onClick={() => router.push('/home')}>
-                <ListItemIcon>
-                  <HomeSharpIcon/>
-                </ListItemIcon>
-                <ListItemText primary={"Home"} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem key={"Projects"} disablePadding>
-              <ListItemButton onClick={() => router.push('/projects')}>
-                <ListItemIcon>
-                  <ConstructionIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Projects"} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem key={"Resume"} disablePadding>
-              <ListItemButton onClick={() => router.push('/resume')}>
-                <ListItemIcon>
-                  <DescriptionIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Resume"} />
-              </ListItemButton>
-            </ListItem>
+            {[
+                { text: "Home", icon: <HomeSharpIcon/>, path: "/home" },
+                { text: "Projects", icon: <ConstructionIcon />, path: "/projects" },
+                { text: "Resume", icon: <DescriptionIcon />, path: "/resume" },
+            ].map((item) => (
+                <ListItem key={item.text} disablePadding>
+                  <ListItemButton
+                    onClick={() => router.push(item.path)}
+                    sx={{
+                      bgcolor: pathname === item.path ? "#0AA2FF" : "transparent", // Highlight active item
+                      color: pathname === item.path ? "#121212" : "#E0E0E0", // Change text color if active
+                      "&:hover": pathname === item.path 
+                        ? { bgcolor: "rgba(10, 132, 255, 1)"}
+                        : { bgcolor: "rgba(10, 132, 255, 0.2)" }, // Subtle blue hover effect if item is not active
+                    }}                    
+                  >
+                    <ListItemIcon sx={{ color: pathname === item.path ? "#121212" : "#E0E0E0" }}>
+                      {item.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={item.text} />
+                  </ListItemButton>
+                </ListItem>
+            ))}
         </List>
-        <Box className="pt-[20px] flex justify-evenly">
-            <a href="https://github.com/diggygeorge" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width={32} height={32} alt="Github"/>
+
+        <Box className="pt-5 flex justify-evenly">
+          {[
+            { href: "https://github.com/diggygeorge", src: "/logos/github.svg", alt: "Github" },
+            { href: "https://linkedin.com/in/daniel-t-george/", src: "/logos/linkedin.svg", alt: "LinkedIn" },
+            { href: "https://mail.google.com/mail/u/0/?fs=1&to=dannygeorge527@gmail.com&tf=cm", src: "/logos/email.svg", alt: "Gmail" }
+          ].map(({ href, src, alt }, index) => (
+            <a key={index} href={href} target="_blank" rel="noopener noreferrer">
+              <img 
+                src={src} 
+                alt={alt} 
+                width={32}
+                height={32}
+                className="invert-[1] transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)]"
+              />
             </a>
-            <a href="https://linkedin.com/in/daniel-t-george/" target="_blank">
-                <img src="https://seeklogo.com/images/L/linkedin-black-icon-logo-ECC426C572-seeklogo.com.png" width={32} height={32} alt="LinkedIn"/>
-            </a>
-            <a href="https://mail.google.com/mail/u/0/?fs=1&to=dannygeorge527@gmail.com&tf=cm" target="_blank">
-                <img src="https://png.pngtree.com/png-clipart/20240720/original/pngtree-gmail-inbox-logo-with-a-little-black-frame-vector-png-image_15595991.png" width={32} height={32} alt="Gmail"/>
-            </a>
+          ))}
         </Box>
+
       </Drawer>
     </Box>
   );

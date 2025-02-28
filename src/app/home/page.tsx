@@ -40,15 +40,30 @@ export default function Home() {
   
 return (
   <>
-  <Box className="flex overflow-hidden h-screen">
+  <Box className="flex overflow-hidden h-screen bg-[#121212] text-[#E0E0E0]"> {/* Dark mode */}
     <Sidebar />
-    <Box component="main" sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }} className="relative flex items-center justify-center">
-      <ArrowBackIos className={`absolute left-5 text-gray-500 hover:text-gray-800 ${index === 0 ? "opacity-0" : "cursor-pointer"}`} onClick={handlePrev}/>
+    <Box 
+      component="main" 
+      sx={{ flexGrow: 1, bgcolor: "#1E1E1E", p: 3 }} 
+      className="relative flex items-center justify-center"
+    >
+      {/* Left Arrow */}
+      <ArrowBackIos 
+        className={`absolute left-5 transition-colors duration-300 text-gray-500 hover:text-[#0A84FF] ${index === 0 ? "opacity-0" : "cursor-pointer"}`} 
+        onClick={handlePrev}
+      />
+
       <Box className="flex flex-col items-center max-w-[663px]">
-        <motion.div key={index} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration: 1.0, ease:"easeInOut"}}>
+        <motion.div 
+          key={index} 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          exit={{ opacity: 0 }} 
+          transition={{ duration: 1.0, ease: "easeInOut" }}
+        >
           {index < quotes.length - 1 && (
             <Image
-              className="block border-[3px] border-solid border-black rounded-xl shadow-[0 4px 8px rgba(0, 0, 0, 0.1)] bg-[#f9f9f9]"
+              className="block border-[3px] border-solid border-[#0A84FF] rounded-xl shadow-[0px_0px_20px_rgba(10,132,255,0.5)] bg-[#1A1A1A]"
               src={quotes[index][1]}
               alt=""
               width={663}
@@ -56,13 +71,20 @@ return (
               style={{ objectFit: "contain" }}
             />
           )}
-          <Typography variant={index === quotes.length - 1 ? "h5" : "body1"} className="pt-5 text-center text-lg">
+          <Typography 
+            variant={index === quotes.length - 1 ? "h5" : "body1"} 
+            className="pt-5 text-center text-lg text-[#E0E0E0]"
+          >
             {quotes[index][0]}
           </Typography>
         </motion.div>
       </Box>
 
-      <ArrowForwardIos className={`absolute right-5 text-gray-500 hover:text-gray-800 ${index === quotes.length - 1 ? "opacity-0" : "cursor-pointer"}`} onClick={handleNext}/>
+      {/* Right Arrow */}
+      <ArrowForwardIos 
+        className={`absolute right-5 transition-colors duration-300 text-gray-500 hover:text-[#0A84FF] ${index === quotes.length - 1 ? "opacity-0" : "cursor-pointer"}`} 
+        onClick={handleNext}
+      />
     </Box>
   </Box>
 </>
