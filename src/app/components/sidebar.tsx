@@ -9,7 +9,7 @@ import {useRouter, usePathname} from "next/navigation";
 
 const Sidebar: React.FC = () => {
     const router = useRouter();
-    const pathname = usePathname(); // Get current route
+    const pathname = usePathname();
     const drawerWidth = 275;
 
     return (
@@ -27,8 +27,8 @@ const Sidebar: React.FC = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            bgcolor: '#1E1E1E', // Sidebar background
-            color: '#E0E0E0',  // Text color
+            bgcolor: '#1E1E1E',
+            color: '#E0E0E0',
             boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)', 
             backdropFilter: 'blur(10px)'
           },
@@ -58,11 +58,11 @@ const Sidebar: React.FC = () => {
                   <ListItemButton
                     onClick={() => router.push(item.path)}
                     sx={{
-                      bgcolor: pathname === item.path ? "#0AA2FF" : "transparent", // Highlight active item
-                      color: pathname === item.path ? "#121212" : "#E0E0E0", // Change text color if active
+                      bgcolor: pathname === item.path ? "#0AA2FF" : "transparent",
+                      color: pathname === item.path ? "#121212" : "#E0E0E0",
                       "&:hover": pathname === item.path 
                         ? { bgcolor: "rgba(10, 132, 255, 1)"}
-                        : { bgcolor: "rgba(10, 132, 255, 0.2)" }, // Subtle blue hover effect if item is not active
+                        : { bgcolor: "rgba(10, 132, 255, 0.2)" },
                     }}                    
                   >
                     <ListItemIcon sx={{ color: pathname === item.path ? "#121212" : "#E0E0E0" }}>

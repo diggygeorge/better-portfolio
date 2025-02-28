@@ -47,7 +47,6 @@ return (
       sx={{ flexGrow: 1, bgcolor: "#1E1E1E", p: 3 }} 
       className="relative flex items-center justify-center"
     >
-      {/* Left Arrow */}
       <ArrowBackIos 
         className={`absolute left-5 transition-colors duration-300 text-gray-500 hover:text-[#0A84FF] ${index === 0 ? "opacity-0" : "cursor-pointer"}`} 
         onClick={handlePrev}
@@ -80,7 +79,6 @@ return (
         </motion.div>
       </Box>
 
-      {/* Right Arrow */}
       <ArrowForwardIos 
         className={`absolute right-5 transition-colors duration-300 text-gray-500 hover:text-[#0A84FF] ${index === quotes.length - 1 ? "opacity-0" : "cursor-pointer"}`} 
         onClick={handleNext}
