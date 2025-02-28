@@ -1,5 +1,5 @@
 import Sidebar from "../components/sidebar";
-import { Box, Toolbar, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function Home() {
   return (
