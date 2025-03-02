@@ -32,6 +32,8 @@ const Sidebar: React.FC = () => {
       return () => clearInterval(timer);
     }, []);
 
+    const [isShown, showText] = useState(false);
+
     return (
     <Box className="transition-all duration-200" sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -57,18 +59,41 @@ const Sidebar: React.FC = () => {
         variant="permanent"
         anchor="left"
       >
-        
+        <Box 
+      sx={{ 
+        display: "flex", 
+        alignItems: "center", 
+        justifyContent: "center", 
+        margin: "20px",
+        overflow: "hidden", 
+        transition: "opacity 0.2s ease-in-out" // Smooth transition
+      }}
+      onMouseEnter={() => showText(true)}
+      onMouseLeave={() => showText(false)}
+    >
+      {isShown ? (
+        <img 
+          src={isDarkMode ? "malayalamdark.png" : "malayalamlight.png"} 
+          alt="Malayalam Text" 
+          style={{  
+            transition: "opacity 0.2s ease-in-out",
+            margin: "10px"
+          }} 
+        />
+      ) : (
         <Typography 
-          sx={{
-            textAlign: "center", 
+          sx={{ 
             fontSize: "2rem", 
-            margin: "20px", 
-            fontFamily: "Grotesk, sans-serif",
-            color: 'var(--text)' // White accent
-          }}>
-            Daniel George
+            fontFamily: "Grotesk, sans-serif", 
+            color: "var(--text)", 
+            lineHeight: "40px",
+            transition: "opacity 0.2s ease-in-out"
+          }}
+        >
+          Daniel George
         </Typography>
-        
+      )}
+    </Box>        
         <List>
             {[
                 { text: "Home", icon: <HomeSharpIcon/>, path: "/home" },
