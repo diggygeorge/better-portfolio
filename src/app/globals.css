@@ -7,7 +7,7 @@
   --text: #E0E0E0;
   --accent: #0AA2FF;
   --sidebar: #1E1E1E;
-  --projectbg: #1A1A1A;
+  --projectbg: rgb(52, 52, 52);
 }
 
 :root[data-theme="light"] {
@@ -15,7 +15,7 @@
   --text: #212121;
   --accent: #0AA2FF;
   --sidebar: #F5F5F5;
-  --projectbg: #F9F9F9;
+  --projectbg: #F5F5F5;
 }
 
 html {

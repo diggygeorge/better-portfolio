@@ -4,7 +4,7 @@ import Toggle from "../components/toggle";
 import {Box, Typography, Divider} from '@mui/material';
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
 import {useRef} from 'react';
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 import Image from 'next/image';
 import "@fontsource/montserrat";
 
@@ -75,7 +75,7 @@ export default function Home() {
 
   return (
     <>
-  <Box sx={{ transition: "all 0.1s ease", display: "flex", bgcolor: "var(--background)", color: "var(--text)" }}> 
+  <Box className="h-screen" sx={{ transition: "all 0.2s ease-in-out", display: "flex", bgcolor: "var(--background)", color: "var(--text)" }}> 
     <Sidebar />
     <Toggle />
     <Box 
@@ -95,13 +95,13 @@ export default function Home() {
         ].map((project, idx) => (
           <Box 
             key={idx} 
-            className="relative flex flex-row items-center text-center gap-4 w-[40%] min-w-[400px] p-5 border-[3px] border-solid border-[#0A84FF] rounded-3xl shadow-[0px_0px_15px_rgba(10,132,255,0.5)] bg-[var(--projectbg)] transition-all duration-200 group"
+            className="relative flex flex-row items-center text-center gap-4 w-[40%] min-w-[400px] p-5 border-[3px] border-solid border-[#0A84FF] rounded-3xl shadow-[0px_0px_15px_rgba(10,132,255,0.5)] bg-[var(--sidebar)] transition-all duration-200 ease-in-out group"
           >
             <a href={project.link} target="_blank">
               <img 
                 src={project.img} 
                 alt={project.title} 
-                className="w-full rounded-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.5] bg-[transparent]"
+                className="w-full rounded-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.5]"
               />
               <Box 
                 className="absolute w-0.8 font-medium top-[15%] left-1/2 -translate-x-1/2 text-[30px] text-white text-center opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"

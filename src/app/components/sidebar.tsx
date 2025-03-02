@@ -50,7 +50,7 @@ const Sidebar: React.FC = () => {
             color: 'var(--text)',
             boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)', 
             backdropFilter: 'blur(10px)',
-            transition: 'all 0.2s ease'
+            transition: 'all 0.2s ease-in-out'
           },
         }}
         variant="permanent"
