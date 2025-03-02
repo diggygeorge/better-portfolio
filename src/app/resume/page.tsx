@@ -9,7 +9,7 @@ export default function Home() {
       <Box sx={{ position: "relative", display: "flex", bgcolor: "var(--background)", color: "var(--text)" }}>
         <Sidebar />
         <Toggle />
-        <Box
+            <Box
           component="main"
           sx={{
             flexGrow: 1,
@@ -19,25 +19,25 @@ export default function Home() {
             transition: "all 0.2s ease"
           }}
         >
-          <Typography sx={{ textAlign: "center", marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: "2rem" }}>
-            Here is my resume!
-          </Typography>
-          <Box textAlign="center">
-            <iframe
-              className="block m-auto rounded-lg shadow-lg"
-              title="resume"
-              src="/resume/danielgeorgesweresume.pdf"
-              width="850"
-              height="1130"
-              allow="autoplay"
-              style={{
-                backgroundColor: "#0A0A0A",
-                borderRadius: "8px",
-                border: "1px solid #0A84FF",
-                boxShadow: "0px 0px 15px rgba(10, 132, 255, 0.3)",
-              }}
-            ></iframe>
-          </Box>
+            <Typography sx={{ textAlign: "center", marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: "2rem" }}>
+              Here is my resume!
+            </Typography>
+            <Box textAlign="center">
+              <iframe
+                className="block m-auto rounded-lg shadow-lg"
+                title="resume"
+                src="/resume/danielgeorgesweresume.pdf"
+                width="850"
+                height="1130"
+                allow="autoplay"
+                style={{
+                  backgroundColor: "#0A0A0A",
+                  borderRadius: "8px",
+                  border: "1px solid #0A84FF",
+                  boxShadow: "0px 0px 15px rgba(10, 132, 255, 0.3)",
+                }}
+              ></iframe>
+            </Box>
         </Box>
       </Box>
     </>

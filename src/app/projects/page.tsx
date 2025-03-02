@@ -6,6 +6,7 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
 import {useRef} from 'react';
 import {useState, useEffect} from 'react';
+import Image from 'next/image';
 import "@fontsource/montserrat";
 
 export default function Home() {
@@ -90,16 +91,12 @@ export default function Home() {
     const [logos, setLogos] = useState<string[]>(dark_logos);  // Use state to store logos
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            // Check the current theme and set logos accordingly
             const theme = document.documentElement.getAttribute("data-theme");
             if (theme === "light") {
             setLogos(light_logos);
             } else {
             setLogos(dark_logos);
-            }}, 0);
-
-            return () => clearInterval(timer);
+            }
         }, []);
 
 
@@ -170,7 +167,7 @@ export default function Home() {
           {logos.map((item, index) => (
             <Box key={index} className="flex flex-col items-center">
               <AspectRatio ratio="1" sx={{ minWidth: 131 }}>
-                <img src={item} alt="logo" />
+                <Image src={item} alt="logo" width={131} height={131}/>
               </AspectRatio>
               <Typography variant="caption" sx={{ marginTop: "8px", textAlign: "center", color: "var(--text)" }}>
                 {titles[index] || "Skill"}

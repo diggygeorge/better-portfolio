@@ -56,7 +56,7 @@ return (
 
       <Box className="flex flex-col items-center max-w-[663px]">
         <motion.div 
-          key={index} 
+          key={index}  
           initial={{ opacity: 0 }} 
           animate={{ opacity: 1 }} 
           exit={{ opacity: 0 }} 
