@@ -1,19 +1,22 @@
 import Sidebar from "../components/sidebar";
+import Toggle from "../components/toggle";
 import { Box, Typography } from "@mui/material";
+import "@fontsource/montserrat";
 
 export default function Home() {
   return (
     <>
-      <Box sx={{ display: "flex", bgcolor: "#121212", color: "#E0E0E0" }}>
+      <Box sx={{ position: "relative", display: "flex", bgcolor: "var(--background)", color: "var(--text)" }}>
         <Sidebar />
+        <Toggle />
         <Box
           component="main"
           sx={{
             flexGrow: 1,
-            bgcolor: "#1E1E1E",
+            bgcolor: "var(--background)",
             padding: 3,
             minHeight: "100vh",
-            boxShadow: "inset 0px 4px 20px rgba(0, 0, 0, 0.5)",
+            transition: "all 0.2s ease"
           }}
         >
           <Typography sx={{ textAlign: "center", marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: "2rem" }}>

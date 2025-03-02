@@ -1,5 +1,6 @@
 "use client";
 import Sidebar from "../components/sidebar";
+import Toggle from "../components/toggle";
 import {Box, Typography} from '@mui/material';
 import {useState, useEffect} from 'react';
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
@@ -40,12 +41,13 @@ export default function Home() {
   
 return (
   <>
-  <Box className="flex overflow-hidden h-screen bg-[#121212] text-[#E0E0E0]"> {/* Dark mode */}
+  <Box className="transition-all duration-200 relative flex overflow-hidden h-screen bg-[var(--background)] text-[var(--text)]">
     <Sidebar />
+    <Toggle />
     <Box 
       component="main" 
-      sx={{ flexGrow: 1, bgcolor: "#1E1E1E", p: 3 }} 
-      className="relative flex items-center justify-center"
+      sx={{ flexGrow: 1, bgcolor: "var(--background)", p: 3 }} 
+      className="relative flex items-center justify-center transition-all duration-200"
     >
       <ArrowBackIos 
         className={`absolute left-5 transition-colors duration-300 text-gray-500 hover:text-[#0A84FF] ${index === 0 ? "opacity-0" : "cursor-pointer"}`} 
@@ -72,7 +74,7 @@ return (
           )}
           <Typography 
             variant={index === quotes.length - 1 ? "h5" : "body1"} 
-            className="pt-5 text-center text-lg text-[#E0E0E0]"
+            className="pt-5 text-center text-lg text-[var(--text)] transition-all duration-200"
           >
             {quotes[index][0]}
           </Typography>

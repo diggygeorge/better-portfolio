@@ -1,5 +1,6 @@
 "use client";
 import * as React from 'react';
+import {useState, useEffect} from 'react';
 import {Box, Drawer, CssBaseline, AppBar, List, Typography, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import ConstructionIcon from '@mui/icons-material/Construction';
@@ -12,12 +13,30 @@ const Sidebar: React.FC = () => {
     const pathname = usePathname();
     const drawerWidth = 275;
 
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    useEffect(() => {
+      const timer = setInterval(() => {
+       const theme = document.documentElement.getAttribute("data-theme");
+       if (theme === "light")
+        {
+          setIsDarkMode(false);
+        } 
+        else
+        {
+          setIsDarkMode(true);
+        }
+      }, 0);
+
+      return () => clearInterval(timer);
+    }, []);
+
     return (
-    <Box sx={{ display: 'flex' }}>
+    <Box className="transition-all duration-200" sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, bgcolor: '#121212' }}
+        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, bgcolor: 'var(--background)' }}
       >
       </AppBar>
       <Drawer
@@ -27,10 +46,11 @@ const Sidebar: React.FC = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            bgcolor: '#1E1E1E',
-            color: '#E0E0E0',
+            bgcolor: 'var(--sidebar)',
+            color: 'var(--text)',
             boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)', 
-            backdropFilter: 'blur(10px)'
+            backdropFilter: 'blur(10px)',
+            transition: 'all 0.2s ease'
           },
         }}
         variant="permanent"
@@ -43,7 +63,7 @@ const Sidebar: React.FC = () => {
             fontSize: "2rem", 
             margin: "20px", 
             fontFamily: "Grotesk, sans-serif",
-            color: '#E0E0E0' // White accent
+            color: 'var(--text)' // White accent
           }}>
             Daniel George
         </Typography>
@@ -58,14 +78,14 @@ const Sidebar: React.FC = () => {
                   <ListItemButton
                     onClick={() => router.push(item.path)}
                     sx={{
-                      bgcolor: pathname === item.path ? "#0AA2FF" : "transparent",
-                      color: pathname === item.path ? "#121212" : "#E0E0E0",
+                      bgcolor: pathname === item.path ? "var(--accent)" : "transparent",
+                      color: pathname === item.path ? "var(--background)" : "var(--text)",
                       "&:hover": pathname === item.path 
                         ? { bgcolor: "rgba(10, 132, 255, 1)"}
                         : { bgcolor: "rgba(10, 132, 255, 0.2)" },
                     }}                    
                   >
-                    <ListItemIcon sx={{ color: pathname === item.path ? "#121212" : "#E0E0E0" }}>
+                    <ListItemIcon sx={{ color: pathname === item.path ? "var(--background)" : "var(--text)" }}>
                       {item.icon}
                     </ListItemIcon>
                     <ListItemText primary={item.text} />
@@ -86,7 +106,7 @@ const Sidebar: React.FC = () => {
                 alt={alt} 
                 width={32}
                 height={32}
-                className="invert-[1] transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)]"
+                className={`transition-all duration-200 hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)] ${isDarkMode ? "invert-[1]" : ""}`}
               />
             </a>
           ))}

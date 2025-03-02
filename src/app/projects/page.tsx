@@ -1,27 +1,44 @@
 "use client";
 import Sidebar from "../components/sidebar";
+import Toggle from "../components/toggle";
 import {Box, Typography, Divider} from '@mui/material';
 import AspectRatio from '@mui/joy/AspectRatio';
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
 import {useRef} from 'react';
-import {useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import "@fontsource/montserrat";
 
 export default function Home() {
 
-  const logos : string[] = 
-  ["logos/python.png",
-   "logos/java.png",
-   "logos/ocaml.png",
-   "logos/tensorflow.png",
-   "logos/flask.png",
-   "logos/html.png",
-   "logos/css.png",
-   "logos/javascript.png",
-   "logos/typescript.png",
-   "logos/react.png",
-   "logos/tailwind.png",
-   "logos/mongodb.png"]
+    const light_logos: string[] = [
+        "/light_logos/python.png",
+        "/light_logos/java.png",
+        "/light_logos/ocaml.png",
+        "/light_logos/tensorflow.png",
+        "/light_logos/flask.png",
+        "/light_logos/html.png",
+        "/light_logos/css.png",
+        "/light_logos/javascript.png",
+        "/light_logos/typescript.png",
+        "/light_logos/react.png",
+        "/light_logos/tailwind.png",
+        "/light_logos/mongodb.png"
+      ];
+      
+      const dark_logos: string[] = [
+        "/logos/python.png",
+        "/logos/java.png",
+        "/logos/ocaml.png",
+        "/logos/tensorflow.png",
+        "/logos/flask.png",
+        "/logos/html.png",
+        "/logos/css.png",
+        "/logos/javascript.png",
+        "/logos/typescript.png",
+        "/logos/react.png",
+        "/logos/tailwind.png",
+        "/logos/mongodb.png"
+      ];
 
    const titles : string[] =
    ["Python", "Java", "OCaml", "TensorFlow", "Flask", "HTML", "CSS", "JavaScript", "TypeScript", "React", "Tailwind CSS", "MongoDB"]
@@ -57,11 +74,11 @@ export default function Home() {
         {
             scroll("left");
         }
-        if (x === logos.length - 5) // # of images - # of visible images
+        if (x >= logos.length - 5) // # of images - # of visible images
         {
             rightVelocity = false;
         }
-        if (x === 0)
+        if (x <= 0)
         {
             rightVelocity = true;
         }
@@ -70,12 +87,27 @@ export default function Home() {
         return () => clearInterval(timer);
     });
 
+    const [logos, setLogos] = useState<string[]>(dark_logos);  // Use state to store logos
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            // Check the current theme and set logos accordingly
+            const theme = document.documentElement.getAttribute("data-theme");
+            if (theme === "light") {
+            setLogos(light_logos);
+            } else {
+            setLogos(dark_logos);
+            }}, 0);
+
+            return () => clearInterval(timer);
+        }, []);
 
 
   return (
     <>
-  <Box sx={{ display: "flex", bgcolor: "#121212", color: "#E0E0E0" }}> 
+  <Box sx={{ transition: "all 0.1s ease", display: "flex", bgcolor: "var(--background)", color: "var(--text)" }}> 
     <Sidebar />
+    <Toggle />
     <Box 
       component="main"
       sx={{ flexGrow: 1, p: 3, textAlign: "center" }}
@@ -93,30 +125,30 @@ export default function Home() {
         ].map((project, idx) => (
           <Box 
             key={idx} 
-            className="relative flex flex-row items-center text-center gap-4 w-[40%] min-w-[400px] p-5 border-[3px] border-solid border-[#0A84FF] rounded-xl shadow-[0px_0px_15px_rgba(10,132,255,0.5)] bg-[#1A1A1A] group"
+            className="relative flex flex-row items-center text-center gap-4 w-[40%] min-w-[400px] p-5 border-[3px] border-solid border-[#0A84FF] rounded-3xl shadow-[0px_0px_15px_rgba(10,132,255,0.5)] bg-[var(--projectbg)] transition-all duration-200 group"
           >
             <a href={project.link} target="_blank">
               <img 
                 src={project.img} 
                 alt={project.title} 
-                className="w-full rounded-lg transition-all duration-300 ease-in-out group-hover:brightness-[0.5]"
+                className="w-full rounded-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.5]"
               />
               <Box 
                 className="absolute w-0.8 font-medium top-[15%] left-1/2 -translate-x-1/2 text-[30px] text-white text-center opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
               >
                 <span className="underline">{project.title}</span>
-                <Typography className="pb-3 text-[#E0E0E0]">{project.desc}</Typography>
-                <Typography className="text-sm text-[#E0E0E0]">{project.stack}</Typography>
+                <Typography className="pb-3 text-white">{project.desc}</Typography>
+                <Typography className="text-sm text-white">{project.stack}</Typography>
               </Box>
             </a>
           </Box>
         ))}
       </Box>
 
-      <Divider sx={{ bgcolor: "#E0E0E0" }} />
+      <Divider sx={{ bgcolor: "var(--text)" }} />
 
       {/* Skills Section */}
-      <Typography variant="h4" sx={{ fontFamily: "Montserrat", paddingTop: "20px", marginBottom: "10px", color: "#E0E0E0" }}>
+      <Typography variant="h4" sx={{ fontFamily: "Montserrat", paddingTop: "20px", marginBottom: "10px", color: "var(--text)" }}>
         Skills:
       </Typography>
 
@@ -140,7 +172,7 @@ export default function Home() {
               <AspectRatio ratio="1" sx={{ minWidth: 131 }}>
                 <img src={item} alt="logo" />
               </AspectRatio>
-              <Typography variant="caption" sx={{ marginTop: "8px", textAlign: "center", color: "#E0E0E0" }}>
+              <Typography variant="caption" sx={{ marginTop: "8px", textAlign: "center", color: "var(--text)" }}>
                 {titles[index] || "Skill"}
               </Typography>
             </Box>
