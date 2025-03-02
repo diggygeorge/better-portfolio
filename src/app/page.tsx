@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import {useRouter} from "next/navigation";
 
 const names : string[] = 
-["a computer scientist. ", "a software developer. ", "a programmer. ", "a student. ", "broke. "]
+["a computer scientist. ", "a software developer. ", "broke. ", "a programmer. ", "a student. "]
 
 const useTypewriter = (speed = 5000) => {
     const [displayText, setDisplayText] = useState('');
