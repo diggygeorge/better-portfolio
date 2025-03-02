@@ -101,7 +101,7 @@ export default function Home() {
               <img 
                 src={project.img} 
                 alt={project.title} 
-                className="w-full rounded-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.5]"
+                className="w-full rounded-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.5] group-hover:blur-[2px]"
               />
               <Box 
                 className="absolute w-0.8 font-medium top-[15%] left-1/2 -translate-x-1/2 text-[30px] text-white text-center opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"

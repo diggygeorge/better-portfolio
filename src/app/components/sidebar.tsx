@@ -7,6 +7,7 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 import DescriptionIcon from '@mui/icons-material/Description';
 import "../../app/globals.css";
 import {useRouter, usePathname} from "next/navigation";
+import Image from 'next/image'
 
 const Sidebar: React.FC = () => {
     const router = useRouter();
@@ -101,12 +102,12 @@ const Sidebar: React.FC = () => {
             { href: "https://mail.google.com/mail/u/0/?fs=1&to=dannygeorge527@gmail.com&tf=cm", src: "/logos/email.svg", alt: "Gmail" }
           ].map(({ href, src, alt }, index) => (
             <a key={index} href={href} target="_blank" rel="noopener noreferrer">
-              <img 
+              <Image 
                 src={src} 
                 alt={alt} 
                 width={32}
                 height={32}
-                className={`transition-all duration-200 hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)] ${isDarkMode ? "invert-[1]" : ""}`}
+                className={`transition-invert hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)] ${isDarkMode ? "invert-[1]" : ""}`}
               />
             </a>
           ))}
