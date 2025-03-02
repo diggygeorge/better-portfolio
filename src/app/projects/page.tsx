@@ -2,7 +2,6 @@
 import Sidebar from "../components/sidebar";
 import Toggle from "../components/toggle";
 import {Box, Typography, Divider} from '@mui/material';
-import AspectRatio from '@mui/joy/AspectRatio';
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
 import {useRef} from 'react';
 import {useState, useEffect} from 'react';
@@ -11,34 +10,19 @@ import "@fontsource/montserrat";
 
 export default function Home() {
 
-    const light_logos: string[] = [
-        "/light_logos/python.png",
-        "/light_logos/java.png",
-        "/light_logos/ocaml.png",
-        "/light_logos/tensorflow.png",
-        "/light_logos/flask.png",
-        "/light_logos/html.png",
-        "/light_logos/css.png",
-        "/light_logos/javascript.png",
-        "/light_logos/typescript.png",
-        "/light_logos/react.png",
-        "/light_logos/tailwind.png",
-        "/light_logos/mongodb.png"
-      ];
-      
-      const dark_logos: string[] = [
-        "/logos/python.png",
-        "/logos/java.png",
-        "/logos/ocaml.png",
-        "/logos/tensorflow.png",
-        "/logos/flask.png",
-        "/logos/html.png",
-        "/logos/css.png",
+    const logos: string[] = [
+        "/logos/python.svg",
+        "/logos/java.svg",
+        "/logos/ocaml.svg",
+        "/logos/tensorflow.svg",
+        "/logos/flask.svg",
+        "/logos/html.svg",
+        "/logos/css.svg",
         "/logos/javascript.png",
-        "/logos/typescript.png",
-        "/logos/react.png",
-        "/logos/tailwind.png",
-        "/logos/mongodb.png"
+        "/logos/typescript.svg",
+        "/logos/react.svg",
+        "/logos/tailwind.svg",
+        "/logos/mongodb.svg"
       ];
 
    const titles : string[] =
@@ -88,17 +72,6 @@ export default function Home() {
         return () => clearInterval(timer);
     });
 
-    const [logos, setLogos] = useState<string[]>(dark_logos);  // Use state to store logos
-
-    useEffect(() => {
-            const theme = document.documentElement.getAttribute("data-theme");
-            if (theme === "light") {
-            setLogos(light_logos);
-            } else {
-            setLogos(dark_logos);
-            }
-        }, []);
-
 
   return (
     <>
@@ -128,7 +101,7 @@ export default function Home() {
               <img 
                 src={project.img} 
                 alt={project.title} 
-                className="w-full rounded-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.5]"
+                className="w-full rounded-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.5] bg-[transparent]"
               />
               <Box 
                 className="absolute w-0.8 font-medium top-[15%] left-1/2 -translate-x-1/2 text-[30px] text-white text-center opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
@@ -165,10 +138,8 @@ export default function Home() {
           }}
         >
           {logos.map((item, index) => (
-            <Box key={index} className="flex flex-col items-center">
-              <AspectRatio ratio="1" sx={{ minWidth: 131 }}>
-                <Image src={item} alt="logo" width={131} height={131}/>
-              </AspectRatio>
+            <Box key={index} className="flex flex-col items-center min-w-[131px]">
+              <Image src={item} alt="logo" width={131} height={131}/>
               <Typography variant="caption" sx={{ marginTop: "8px", textAlign: "center", color: "var(--text)" }}>
                 {titles[index] || "Skill"}
               </Typography>
