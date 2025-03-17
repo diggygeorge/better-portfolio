@@ -1,6 +1,7 @@
 import Sidebar from "../components/sidebar";
 import Toggle from "../components/toggle";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
+import DownloadIcon from '@mui/icons-material/Download';
 import "@fontsource/montserrat";
 
 export default function Home() {
@@ -38,6 +39,7 @@ export default function Home() {
                 }}
               ></iframe>
             </Box>
+            <Button variant="contained" startIcon={<DownloadIcon/>} target="_blank" href="/resume/danielgeorgesweresume.pdf">Download</Button>
         </Box>
       </Box>
     </>
