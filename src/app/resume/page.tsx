@@ -39,7 +39,9 @@ export default function Home() {
                 }}
               ></iframe>
             </Box>
-            <Button variant="contained" startIcon={<DownloadIcon/>} target="_blank" href="/resume/danielgeorgesweresume.pdf" className="block ml-auto mr-auto">Download</Button>
+            <Box className="text-center pt-[20px]">
+              <Button variant="contained" startIcon={<DownloadIcon/>} target="_blank" href="/resume/danielgeorgesweresume.pdf" className="m-auto">Download</Button>
+            </Box>
         </Box>
       </Box>
     </>
