@@ -91,7 +91,6 @@ export default function Home() {
       <Box className="flex flex-wrap justify-center gap-8 pb-7">
         {[ 
           { img: "/nutritionimg.jpg", title: "BU Food Tracker", desc: "Nutrition calculator for all dining halls at Boston University.", stack: "Next.js, Mantine, TypeScript, MongoDB", link: "https://bostonhacks.vercel.app/" },
-          { img: "/therapistimg.png", title: "AI Therapist", desc: "Analyzes your feelings and responds with a motivational quote.", stack: "TensorFlow, Flask, Docker", link: "https://therapist-227352888866.us-east4.run.app/" },
           { img: "/steamroller.png", title: "Steamroller", desc: "Recommends additional games to waste your life on.", stack: "Next.js, Typescript", link: "https://steamroller.vercel.app/" }
         ].map((project, idx) => (
           <Box 
