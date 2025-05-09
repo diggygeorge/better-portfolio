@@ -40,7 +40,7 @@ export default function Home() {
               ></iframe>
             </Box>
             <Box className="text-center pt-[20px]">
-              <Button variant="contained" startIcon={<DownloadIcon/>} target="_blank" href="/resume/danielgeorgesweresume.pdf" className="m-auto">Download</Button>
+              <Button variant="contained" startIcon={<DownloadIcon/>} target="_blank" href="/resume/danielgeorgeresume.pdf" className="m-auto">Download</Button>
             </Box>
         </Box>
       </Box>
