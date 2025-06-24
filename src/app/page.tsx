@@ -1,7 +1,6 @@
 "use client";
 import {Stack, Toolbar, Typography} from '@mui/material';
 import "../app/globals.css";
-import {useState, useEffect} from 'react';
 import {useRouter} from "next/navigation";
 import ParticleBackground from './components/particlebackground'
 import Typewriter from './components/typewriter'
