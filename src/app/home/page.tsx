@@ -207,14 +207,14 @@ return (<div className="h-screen flex flex-col">
           ref={scrollRef} 
           sx={{ 
             display: 'flex', gap: 4, py: 1, overflow: 'hidden', 
-            width: {sm: 457, md: 946}, scrollSnapType: 'x mandatory',
+            width: {xs:364, sm:628, lg:892}, scrollSnapType: 'x mandatory',
             '& > *': { scrollSnapAlign: 'start' }, 
             '::-webkit-scrollbar': { display: 'none' } 
           }}
         >
           {logos.map((item, index) => (
-            <Box key={index} className="flex flex-col items-center min-w-[131px]">
-              <Image src={item} alt="logo" width={131} height={131}/>
+            <Box key={index} className="flex flex-col items-center min-w-[100px]">
+              <Image src={item} alt="logo" width={100} height={100} />
               <Typography variant="caption" sx={{ marginTop: "8px", textAlign: "center", color: "var(--text)" }}>
                 {titles[index] || "Skill"}
               </Typography>
