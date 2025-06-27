@@ -32,8 +32,8 @@ const Sidebar: React.FC = () => {
     }, []);
 
     return (
-    <Box className="bg-[var(--background)] transition-colors duration-300 ease-in-out top-0 fixed flex justify-center w-full h-[64px] z-50">
-        
+    <Box className="bg-[var(--background)] transition-colors duration-300 ease-in-out top-0 fixed flex flex-wrap justify-center w-full h-[128px] lg:h-[64px] z-50">
+      <div className="text-center">
         <Typography
           sx={{ 
             fontSize: "2rem", 
@@ -46,13 +46,15 @@ const Sidebar: React.FC = () => {
         >
           Daniel George
         </Typography>
+      </div>
+      <div className="flex justify-center">
             {[
                 { text: "Home", icon: <HomeSharpIcon/>, path: "#home" },
                 { text: "Projects", icon: <ConstructionIcon />, path: "#projects" },
                 { text: "Resume", icon: <DescriptionIcon />, path: "#resume" },
             ].map((item) => (
-              <Box key={item.text}>
-                <ListItem>
+              <Box key={item.text} className="p-2">
+                <ListItem disablePadding>
                   <ListItemButton
                     onClick={() => {
                       router.push(item.path)
@@ -68,10 +70,10 @@ const Sidebar: React.FC = () => {
                         : { bgcolor: "rgba(10, 132, 255, 0.2)" },
                     }}                    
                   >
-                    <ListItemIcon sx={{ color: hash === item.path ? "var(--background)" : "var(--text)" }}>
+                    <div className="sm:mr-1">
                       {item.icon}
-                    </ListItemIcon>
-                    <ListItemText primary={item.text} />
+                    </div>
+                    <ListItemText className="" primary={item.text} />
                   </ListItemButton>
                 </ListItem>
               </Box>
@@ -94,7 +96,9 @@ const Sidebar: React.FC = () => {
             </a>
             </Box>
           ))}
+      </div>
     </Box>
+    
   );
 }
 

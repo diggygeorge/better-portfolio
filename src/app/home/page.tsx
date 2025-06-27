@@ -44,19 +44,21 @@ export default function Home() {
         "/logos/python.svg",
         "/logos/java.svg",
         "/logos/ocaml.svg",
-        "/logos/tensorflow.svg",
+        "/logos/supabase.svg",
         "/logos/flask.svg",
         "/logos/html.svg",
         "/logos/css.svg",
         "/logos/javascript.png",
         "/logos/typescript.svg",
         "/logos/react.svg",
+        "/logos/express.svg",
         "/logos/tailwind.svg",
-        "/logos/mongodb.svg"
+        "/logos/mongodb.svg",
+        "/logos/mysql.svg"
       ];
 
    const titles : string[] =
-   ["Python", "Java", "OCaml", "TensorFlow", "Flask", "HTML", "CSS", "JavaScript", "TypeScript", "React", "Tailwind CSS", "MongoDB"]
+   ["Python", "Java", "OCaml", "Supabase", "Flask", "HTML", "CSS", "JavaScript", "TypeScript", "React", "Express.js", "Tailwind CSS", "MongoDB", "MySQL"]
 
    let x = 0;
    let rightVelocity = true;
@@ -67,11 +69,11 @@ export default function Home() {
      if (scrollRef.current) {
        const scrollAmount = 100;
        scrollRef.current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
-       if (direction === "right")
+       if (direction === "right" && x < logos.length - 3)
        {
         x++;
        }
-       else if (direction === "left")
+       else if (direction === "left" && x > 0)
        {
         x--;
        }
@@ -89,7 +91,7 @@ export default function Home() {
         {
             scroll("left");
         }
-        if (x >= logos.length - 5) // # of images - # of visible images
+        if (x >= logos.length - 3) // # of images - # of visible images
         {
             rightVelocity = false;
         }
@@ -149,13 +151,13 @@ return (<div className="h-screen flex flex-col">
     </Box>
   </Box>
 </div>
-<div id="projects" className="pt-[100px]">
-  <Box sx={{ transition: "colors 0.3s ease-in-out", display: "flex", bgcolor: "transparent", color: "var(--text)" }}> 
+<div id="projects" className="lg:pt-[100px]">
+  <Box className="w-full" sx={{ transition: "colors 0.3s ease-in-out", display: "flex", bgcolor: "transparent", color: "var(--text)" }}> 
     <Box 
       component="main"
-      sx={{ flexGrow: 1, p: 3, textAlign: "center" }}
+      sx={{ flexGrow: 1, p: {xs: 2, md:3}, textAlign: "center" }}
     >
-      <Typography sx={{ marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: "2rem" }}>
+      <Typography sx={{ marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: {xs: "1.25rem", lg:"2rem"} }}>
         Here are my projects so far. More to come!
       </Typography>
 
@@ -167,9 +169,9 @@ return (<div className="h-screen flex flex-col">
         ].map((project, idx) => (
           <Box 
             key={idx} 
-            className="flex flex-row items-center text-center gap-4 w-[40%] min-w-[400px] p-5 border-[3px] border-solid border-[#0A84FF] rounded-3xl shadow-[0px_0px_15px_rgba(10,132,255,0.5)] bg-[var(--sidebar)] transition-all duration-300 ease-in-out group"
+            className="m-0 flex flex-col sm:flex-row items-center text-center gap-4 w-[80%] sm:w-[70%] lg:w-[40%] p-4 border-[3px] border-solid border-[#0A84FF] rounded-3xl shadow-[0px_0px_15px_rgba(10,132,255,0.5)] bg-[var(--sidebar)] transition-all duration-300 ease-in-out group"
           >
-            <a href={project.link} className="max-w-full h-auto" target="_blank">
+            <a href={project.link} className="h-auto" target="_blank">
               <Box className="relative">
                 <img
                   src={project.img} 
@@ -205,7 +207,7 @@ return (<div className="h-screen flex flex-col">
           ref={scrollRef} 
           sx={{ 
             display: 'flex', gap: 4, py: 1, overflow: 'hidden', 
-            width: 783, scrollSnapType: 'x mandatory', 
+            width: {sm: 457, md: 946}, scrollSnapType: 'x mandatory',
             '& > *': { scrollSnapAlign: 'start' }, 
             '::-webkit-scrollbar': { display: 'none' } 
           }}
@@ -228,7 +230,7 @@ return (<div className="h-screen flex flex-col">
     </Box>
   </Box>
 </div>
-<div id="resume" className="pt-[100px]">
+<div id="resume" className="lg:pt-[100px]">
       <Box sx={{display: "flex", bgcolor: "transparent", color: "var(--text)" }}>
             <Box
           component="main"
@@ -236,7 +238,7 @@ return (<div className="h-screen flex flex-col">
             flexGrow: 1,
             bgcolor: "transparent",
             padding: 3,
-            minHeight: "100vh",
+            minHeight: {sm: "50vh", lg:"100vh"},
             transition: "colors 0.3s ease-in-out"
           }}
         >
@@ -244,20 +246,21 @@ return (<div className="h-screen flex flex-col">
               Here is my resume!
             </Typography>
             <Box textAlign="center">
-              <iframe
-                className="block m-auto rounded-lg shadow-lg"
-                title="resume"
-                src="/resume/danielgeorgesweresume.pdf"
-                width="850"
-                height="1130"
-                allow="autoplay"
-                style={{
-                  backgroundColor: "#0A0A0A",
-                  borderRadius: "8px",
-                  border: "1px solid #0A84FF",
-                  boxShadow: "0px 0px 15px rgba(10, 132, 255, 0.3)",
-                }}
-              ></iframe>
+              <div className="w-full flex justify-center">
+                <div className="w-[90%] sm:w-[500px] md:w-[650px] lg:w-[850px]">
+                  <iframe
+                    className="w-full aspect-[8.5/11] rounded-lg shadow-lg"
+                    title="resume"
+                    src="/resume/danielgeorgesweresume.pdf"
+                    allow="autoplay"
+                    style={{
+                      backgroundColor: "#0A0A0A",
+                      border: "1px solid #0A84FF",
+                      boxShadow: "0px 0px 15px rgba(10, 132, 255, 0.3)",
+                    }}
+                  ></iframe>
+                </div>
+              </div>
             </Box>
             <Box className="text-center pt-[20px]">
               <Button variant="contained" startIcon={<DownloadIcon/>} target="_blank" href="/resume/danielgeorgeresume.pdf" className="m-auto">Download</Button>
