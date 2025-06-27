@@ -32,7 +32,7 @@ const Sidebar: React.FC = () => {
     }, []);
 
     return (
-    <Box className="bg-[var(--background)] transition-all duration-200 top-0 fixed flex justify-center w-full h-[64px] z-50">
+    <Box className="bg-[var(--background)] transition-colors duration-300 ease-in-out top-0 fixed flex justify-center w-full h-[64px] z-50">
         
         <Typography
           sx={{ 
@@ -89,7 +89,7 @@ const Sidebar: React.FC = () => {
                 alt={alt} 
                 width={32}
                 height={32}
-                className={`transition-invert hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)] ${isDarkMode ? "invert-[1]" : ""}`}
+                className={`transition-invert duration-200 hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)] ${isDarkMode ? "invert-[1]" : ""}`}
               />
             </a>
             </Box>

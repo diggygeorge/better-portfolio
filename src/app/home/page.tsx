@@ -106,14 +106,14 @@ return (<div className="h-screen flex flex-col">
 <Sidebar />
 <Toggle />
   <div id="home" className="pt-[64px]">
-  <Box className="transition-all duration-200 flex overflow-hidden text-[var(--text)]  w-full h-[calc(100vh-64px)]">
+  <Box className="transition-colors duration-300 ease-in-out flex overflow-hidden text-[var(--text)]  w-full h-[calc(100vh-64px)]">
     <Box 
       component="main" 
       sx={{ flexGrow: 1, bgcolor: "transparent", p: 3 }} 
-      className="flex items-center justify-center transition-all duration-200"
+      className="flex items-center justify-center transition-colors duration-300 ease-in-out"
     >
       <ArrowBackIos 
-        className={`absolute left-5 transition-colors duration-300 text-gray-500 hover:text-[#0A84FF] ${index === 0 ? "opacity-0" : "cursor-pointer"}`} 
+        className={`absolute left-5 transition-colors duration-300 ease-in-out text-gray-500 hover:text-[#0A84FF] ${index === 0 ? "opacity-0" : "cursor-pointer"}`} 
         onClick={handlePrev}
       />
 
@@ -143,14 +143,14 @@ return (<div className="h-screen flex flex-col">
       </Box>
 
       <ArrowForwardIos 
-        className={`absolute right-5 transition-colors duration-300 text-gray-500 hover:text-[#0A84FF] ${index === quotes.length - 1 ? "opacity-0" : "cursor-pointer"}`} 
+        className={`absolute right-5 transition-colors duration-300 ease-in-out duration-300 text-gray-500 hover:text-[#0A84FF] ${index === quotes.length - 1 ? "opacity-0" : "cursor-pointer"}`} 
         onClick={handleNext}
       />
     </Box>
   </Box>
 </div>
 <div id="projects" className="pt-[100px]">
-  <Box sx={{ transition: "all 0.2s ease-in-out", display: "flex", bgcolor: "var(--background)", color: "var(--text)" }}> 
+  <Box sx={{ transition: "colors 0.3s ease-in-out", display: "flex", bgcolor: "transparent", color: "var(--text)" }}> 
     <Box 
       component="main"
       sx={{ flexGrow: 1, p: 3, textAlign: "center" }}
@@ -167,18 +167,16 @@ return (<div className="h-screen flex flex-col">
         ].map((project, idx) => (
           <Box 
             key={idx} 
-            className="flex flex-row items-center text-center gap-4 w-[40%] min-w-[400px] p-5 border-[3px] border-solid border-[#0A84FF] rounded-3xl shadow-[0px_0px_15px_rgba(10,132,255,0.5)] bg-[var(--sidebar)] transition-all duration-200 ease-in-out group"
+            className="flex flex-row items-center text-center gap-4 w-[40%] min-w-[400px] p-5 border-[3px] border-solid border-[#0A84FF] rounded-3xl shadow-[0px_0px_15px_rgba(10,132,255,0.5)] bg-[var(--sidebar)] transition-all duration-300 ease-in-out group"
           >
             <a href={project.link} className="max-w-full h-auto" target="_blank">
               <Box className="relative">
                 <img
                   src={project.img} 
                   alt={project.title} 
-                  className="aspect-video max-w-full h-full rounded-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.5] group-hover:blur-[2px]"
+                  className="aspect-video max-w-full h-full rounded-lg transition-all duration-300 ease-in-out group-hover:brightness-[0.5] group-hover:blur-[2px]"
                 />
-                <Box 
-                  className="absolute inset-x-0 top-[80] text-[30px] text-white text-center opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
-                >
+                <Box className="absolute inset-0 flex flex-col items-center justify-center text-white text-center opacity-0 text-[30px] transition-opacity duration-300 ease-in-out group-hover:opacity-100">
                   <span className="underline">{project.title}</span>
                   <Typography className="pb-3 text-white">{project.desc}</Typography>
                   <Typography className="text-sm text-white">{project.stack}</Typography>
@@ -200,7 +198,7 @@ return (<div className="h-screen flex flex-col">
       <Box className="flex items-center justify-center">
         <ArrowBackIos 
           onClick={() => scroll("left")} 
-          className="cursor-pointer text-gray-500 hover:text-[#0A84FF] transition-colors duration-300"
+          className="cursor-pointer text-gray-500 hover:text-[#0A84FF] transition-colors duration-300 ease-in-out"
         />
         
         <Box 
@@ -224,7 +222,7 @@ return (<div className="h-screen flex flex-col">
 
         <ArrowForwardIos 
           onClick={() => scroll("right")} 
-          className="cursor-pointer text-gray-500 hover:text-[#0A84FF] transition-colors duration-300"
+          className="cursor-pointer text-gray-500 hover:text-[#0A84FF] transition-colors duration-300 ease-in-out"
         />
       </Box>
     </Box>
@@ -239,7 +237,7 @@ return (<div className="h-screen flex flex-col">
             bgcolor: "transparent",
             padding: 3,
             minHeight: "100vh",
-            transition: "all 0.2s ease"
+            transition: "colors 0.3s ease-in-out"
           }}
         >
             <Typography sx={{ textAlign: "center", marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: "2rem" }}>
