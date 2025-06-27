@@ -8,7 +8,6 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import "../../app/globals.css";
 import {useRouter} from "next/navigation";
 import Image from 'next/image'
-import {Divider} from '@mui/material'
 
 const Sidebar: React.FC = () => {
     const router = useRouter();
@@ -52,8 +51,8 @@ const Sidebar: React.FC = () => {
                 { text: "Projects", icon: <ConstructionIcon />, path: "#projects" },
                 { text: "Resume", icon: <DescriptionIcon />, path: "#resume" },
             ].map((item) => (
-              <Box>
-                <ListItem key={item.text}>
+              <Box key={item.text}>
+                <ListItem>
                   <ListItemButton
                     onClick={() => {
                       router.push(item.path)
@@ -83,8 +82,8 @@ const Sidebar: React.FC = () => {
             { href: "https://linkedin.com/in/daniel-t-george/", src: "/logos/linkedin.svg", alt: "LinkedIn" },
             { href: "https://mail.google.com/mail/u/0/?fs=1&to=dannygeorge527@gmail.com&tf=cm", src: "/logos/email.svg", alt: "Gmail" }
           ].map(({ href, src, alt }, index) => (
-            <Box className="p-4">
-            <a key={index} href={href} target="_blank" rel="noopener noreferrer">
+            <Box key={index} className="p-4">
+            <a href={href} target="_blank" rel="noopener noreferrer">
               <Image 
                 src={src} 
                 alt={alt} 
