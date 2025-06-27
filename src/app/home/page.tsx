@@ -1,11 +1,13 @@
 "use client";
 import Sidebar from "../components/sidebar";
 import Toggle from "../components/toggle";
-import {Box, Typography} from '@mui/material';
-import {useState, useEffect} from 'react';
+import {Divider} from '@mui/material'
+import {Box, Typography, Button} from '@mui/material';
+import {useState, useEffect, useRef} from 'react';
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
 import Image from 'next/image';
 import {motion} from 'framer-motion'
+import DownloadIcon from '@mui/icons-material/Download';
 
 export default function Home() {
   
@@ -13,7 +15,7 @@ export default function Home() {
 [["Welcome!  Whether you're a recruiter or just someone checking my LinkedIn or GitHub, I believe job applications don’t tell the whole story—so here I aim to illustrate mine.", "/gallery/welcomepart.jpg"],
 ["Let’s start with introductions. My name is Daniel George, and I’m an undergraduate at Boston University, majoring in Mathematics and Computer Science.", "/gallery/college.jpg"],
 ["I've always been passionate about math—so much so that I used to have a list of numbers hanging in my bedroom!", "/gallery/kid.jpg"],
-["Now, I’m taking my love of problem solving by exploring software engineering and machine learning. (Hint: Check out my projects!)", "/gallery/ai.jpg"],
+["Now, I’m taking my love of problem solving by exploring software engineering and mathematics. (Hint: Check out my projects!)", "/gallery/ai.jpg"],
 ["God has and will always be first in my life.  I love finding new ways to serve him: in and out of church.", "/gallery/church.jpg"],
 ["I even serve on my church’s praise and worship team and choir!", "/gallery/pw.jpg"],
 ["I've been practicing martial arts for the past 11 years, earning a black belt in Shotokan karate—and I still train at my college!", "/gallery/karate.jpg"],
@@ -38,23 +40,84 @@ export default function Home() {
   const handlePrev = () => {
     setIndex((index) => (index > 0 ? index - 1 : index));
   };
+  const logos: string[] = [
+        "/logos/python.svg",
+        "/logos/java.svg",
+        "/logos/ocaml.svg",
+        "/logos/tensorflow.svg",
+        "/logos/flask.svg",
+        "/logos/html.svg",
+        "/logos/css.svg",
+        "/logos/javascript.png",
+        "/logos/typescript.svg",
+        "/logos/react.svg",
+        "/logos/tailwind.svg",
+        "/logos/mongodb.svg"
+      ];
+
+   const titles : string[] =
+   ["Python", "Java", "OCaml", "TensorFlow", "Flask", "HTML", "CSS", "JavaScript", "TypeScript", "React", "Tailwind CSS", "MongoDB"]
+
+   let x = 0;
+   let rightVelocity = true;
+
+   const scrollRef = useRef<HTMLDivElement>(null);
+
+   const scroll = (direction: "left" | "right") => {
+     if (scrollRef.current) {
+       const scrollAmount = 100;
+       scrollRef.current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
+       if (direction === "right")
+       {
+        x++;
+       }
+       else if (direction === "left")
+       {
+        x--;
+       }
+       console.log(x);
+     }
+   };
+
+   useEffect(() => {
+        const timer = setInterval(() => {
+        if (rightVelocity)
+        {
+            scroll("right");
+        }
+        else
+        {
+            scroll("left");
+        }
+        if (x >= logos.length - 5) // # of images - # of visible images
+        {
+            rightVelocity = false;
+        }
+        else if (x <= 0)
+        {
+            rightVelocity = true;
+        }
+        }, 1500);
+        
+        return () => clearInterval(timer);
+    });
   
-return (
-  <>
-  <Box className="transition-all duration-200 relative flex overflow-hidden h-screen bg-[var(--background)] text-[var(--text)]">
-    <Sidebar />
-    <Toggle />
+return (<div className="h-screen flex flex-col">
+<Sidebar />
+<Toggle />
+  <div id="home" className="pt-[64px]">
+  <Box className="transition-all duration-200 flex overflow-hidden text-[var(--text)]  w-full h-[calc(100vh-64px)]">
     <Box 
       component="main" 
-      sx={{ flexGrow: 1, bgcolor: "var(--background)", p: 3 }} 
-      className="relative flex items-center justify-center transition-all duration-200"
+      sx={{ flexGrow: 1, bgcolor: "transparent", p: 3 }} 
+      className="flex items-center justify-center transition-all duration-200"
     >
       <ArrowBackIos 
         className={`absolute left-5 transition-colors duration-300 text-gray-500 hover:text-[#0A84FF] ${index === 0 ? "opacity-0" : "cursor-pointer"}`} 
         onClick={handlePrev}
       />
 
-      <Box className="flex flex-col items-center max-w-[663px]">
+      <Box className="flex flex-col">
         <motion.div 
           key={index}  
           initial={{ opacity: 0 }} 
@@ -63,21 +126,19 @@ return (
           transition={{ duration: 1.0, ease: "easeInOut" }}
         >
           {index < quotes.length - 1 && (
-            <Image
-              className="block border-[3px] border-solid border-[#0A84FF] rounded-xl shadow-[0px_0px_20px_rgba(10,132,255,0.5)] bg-[#1A1A1A]"
-              src={quotes[index][1]}
-              alt=""
-              width={663}
-              height={500}
-              style={{ objectFit: "contain" }}
-            />
+            <div className="relative w-[60vw] mx-auto aspect-video">
+              <img
+                src={quotes[index][1]}
+                alt=""
+                className="absolute top-0 left-0 w-full h-full object-cover rounded-xl border-[3px] border-[#0A84FF] shadow-[0px_0px_20px_rgba(10,132,255,0.5)] bg-[#1A1A1A]"
+              />
+            </div>
           )}
-          <Typography 
-            variant={index === quotes.length - 1 ? "h5" : "body1"} 
-            className="pt-5 text-center text-lg text-[var(--text)] transition-all duration-200"
+          <Box 
+            className={`max-w-[65%] text-center m-auto pt-5 text-${index == quotes.length - 1 ? "3xl" : "lg"} text-[var(--text)] transition-all duration-200`}
           >
             {quotes[index][0]}
-          </Typography>
+          </Box>
         </motion.div>
       </Box>
 
@@ -87,7 +148,124 @@ return (
       />
     </Box>
   </Box>
-</>
+</div>
+<div id="projects" className="pt-[100px]">
+  <Box sx={{ transition: "all 0.2s ease-in-out", display: "flex", bgcolor: "var(--background)", color: "var(--text)" }}> 
+    <Box 
+      component="main"
+      sx={{ flexGrow: 1, p: 3, textAlign: "center" }}
+    >
+      <Typography sx={{ marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: "2rem" }}>
+        Here are my projects so far. More to come!
+      </Typography>
 
-  );
-}
+      <Box className="flex flex-wrap justify-center gap-8 pb-7 z-8">
+          {[ 
+          { img: "/nutritionimg.png", title: "Dream Journal", desc: "CRUD App to document your dreams and anonymously see others publicly.", stack: "Supabase, Next.js, Typescript", link: "https://dream-journal-drab.vercel.app/" },
+          { img: "/nutritionimg.png", title: "MyFitnessTerrier", desc: "Nutrition calculator for all dining halls at Boston University.", stack: "Next.js, TypeScript, MongoDB", link: "https://bu-nutrition.vercel.app/" },
+          { img: "/steamroller.png", title: "Steamroller", desc: "Recommends additional games to waste your life on.", stack: "Next.js, Typescript", link: "https://steamroller.vercel.app/" }
+        ].map((project, idx) => (
+          <Box 
+            key={idx} 
+            className="flex flex-row items-center text-center gap-4 w-[40%] min-w-[400px] p-5 border-[3px] border-solid border-[#0A84FF] rounded-3xl shadow-[0px_0px_15px_rgba(10,132,255,0.5)] bg-[var(--sidebar)] transition-all duration-200 ease-in-out group"
+          >
+            <a href={project.link} className="max-w-full h-auto" target="_blank">
+              <Box className="relative">
+                <img
+                  src={project.img} 
+                  alt={project.title} 
+                  className="aspect-video max-w-full h-full rounded-lg transition-all duration-200 ease-in-out group-hover:brightness-[0.5] group-hover:blur-[2px]"
+                />
+                <Box 
+                  className="absolute inset-x-0 top-[80] text-[30px] text-white text-center opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
+                >
+                  <span className="underline">{project.title}</span>
+                  <Typography className="pb-3 text-white">{project.desc}</Typography>
+                  <Typography className="text-sm text-white">{project.stack}</Typography>
+                </Box>
+              </Box>
+            </a>
+          </Box>
+        ))}
+        
+      </Box>
+
+      <Divider sx={{ bgcolor: "var(--text)" }} />
+
+      {/* Skills Section */}
+      <Typography variant="h4" sx={{ fontFamily: "Montserrat", paddingTop: "20px", marginBottom: "10px", color: "var(--text)" }}>
+        Skills:
+      </Typography>
+
+      <Box className="flex items-center justify-center">
+        <ArrowBackIos 
+          onClick={() => scroll("left")} 
+          className="cursor-pointer text-gray-500 hover:text-[#0A84FF] transition-colors duration-300"
+        />
+        
+        <Box 
+          ref={scrollRef} 
+          sx={{ 
+            display: 'flex', gap: 4, py: 1, overflow: 'hidden', 
+            width: 783, scrollSnapType: 'x mandatory', 
+            '& > *': { scrollSnapAlign: 'start' }, 
+            '::-webkit-scrollbar': { display: 'none' } 
+          }}
+        >
+          {logos.map((item, index) => (
+            <Box key={index} className="flex flex-col items-center min-w-[131px]">
+              <Image src={item} alt="logo" width={131} height={131}/>
+              <Typography variant="caption" sx={{ marginTop: "8px", textAlign: "center", color: "var(--text)" }}>
+                {titles[index] || "Skill"}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+
+        <ArrowForwardIos 
+          onClick={() => scroll("right")} 
+          className="cursor-pointer text-gray-500 hover:text-[#0A84FF] transition-colors duration-300"
+        />
+      </Box>
+    </Box>
+  </Box>
+</div>
+<div id="resume" className="pt-[100px]">
+      <Box sx={{display: "flex", bgcolor: "transparent", color: "var(--text)" }}>
+            <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            bgcolor: "transparent",
+            padding: 3,
+            minHeight: "100vh",
+            transition: "all 0.2s ease"
+          }}
+        >
+            <Typography sx={{ textAlign: "center", marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: "2rem" }}>
+              Here is my resume!
+            </Typography>
+            <Box textAlign="center">
+              <iframe
+                className="block m-auto rounded-lg shadow-lg"
+                title="resume"
+                src="/resume/danielgeorgesweresume.pdf"
+                width="850"
+                height="1130"
+                allow="autoplay"
+                style={{
+                  backgroundColor: "#0A0A0A",
+                  borderRadius: "8px",
+                  border: "1px solid #0A84FF",
+                  boxShadow: "0px 0px 15px rgba(10, 132, 255, 0.3)",
+                }}
+              ></iframe>
+            </Box>
+            <Box className="text-center pt-[20px]">
+              <Button variant="contained" startIcon={<DownloadIcon/>} target="_blank" href="/resume/danielgeorgeresume.pdf" className="m-auto">Download</Button>
+            </Box>
+        </Box>
+      </Box>
+</div>
+</div>
+)}

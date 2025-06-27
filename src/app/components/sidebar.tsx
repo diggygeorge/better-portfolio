@@ -1,20 +1,20 @@
 "use client";
 import * as React from 'react';
 import {useState, useEffect} from 'react';
-import {Box, Drawer, CssBaseline, AppBar, List, Typography, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
+import {Box, Typography, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import DescriptionIcon from '@mui/icons-material/Description';
 import "../../app/globals.css";
-import {useRouter, usePathname} from "next/navigation";
+import {useRouter} from "next/navigation";
 import Image from 'next/image'
+import {Divider} from '@mui/material'
 
 const Sidebar: React.FC = () => {
     const router = useRouter();
-    const pathname = usePathname();
-    const drawerWidth = 275;
 
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [hash, setHash] = useState("#home")
 
     useEffect(() => {
       const timer = setInterval(() => {
@@ -32,100 +32,58 @@ const Sidebar: React.FC = () => {
       return () => clearInterval(timer);
     }, []);
 
-    const [isShown, showText] = useState(false);
-
     return (
-    <Box className="transition-all duration-200" sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, bgcolor: 'var(--background)' }}
-      >
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-            bgcolor: 'var(--sidebar)',
-            color: 'var(--text)',
-            boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)', 
-            backdropFilter: 'blur(10px)',
-            transition: 'all 0.2s ease-in-out'
-          },
-        }}
-        variant="permanent"
-        anchor="left"
-      >
-        <Box 
-      sx={{ 
-        display: "flex", 
-        alignItems: "center", 
-        justifyContent: "center", 
-        margin: "20px",
-        overflow: "hidden", 
-        transition: "opacity 0.2s ease-in-out" // Smooth transition
-      }}
-      onMouseEnter={() => showText(true)}
-      onMouseLeave={() => showText(false)}
-    >
-      {isShown ? (
-        <img 
-          src={isDarkMode ? "malayalamdark.png" : "malayalamlight.png"} 
-          alt="Malayalam Text" 
-          style={{  
-            transition: "opacity 0.2s ease-in-out",
-            margin: "10px"
-          }} 
-        />
-      ) : (
-        <Typography 
+    <Box className="bg-[var(--background)] transition-all duration-200 top-0 fixed flex justify-center w-full h-[64px] z-50">
+        
+        <Typography
           sx={{ 
             fontSize: "2rem", 
             fontFamily: "Grotesk, sans-serif", 
             color: "var(--text)", 
-            lineHeight: "40px",
-            transition: "opacity 0.2s ease-in-out"
+            lineHeight: "60px",
+            transition: "opacity 0.2s ease-in-out",
+            paddingRight: 4
           }}
         >
           Daniel George
         </Typography>
-      )}
-    </Box>        
-        <List>
             {[
-                { text: "Home", icon: <HomeSharpIcon/>, path: "/home" },
-                { text: "Projects", icon: <ConstructionIcon />, path: "/projects" },
-                { text: "Resume", icon: <DescriptionIcon />, path: "/resume" },
+                { text: "Home", icon: <HomeSharpIcon/>, path: "#home" },
+                { text: "Projects", icon: <ConstructionIcon />, path: "#projects" },
+                { text: "Resume", icon: <DescriptionIcon />, path: "#resume" },
             ].map((item) => (
-                <ListItem key={item.text} disablePadding>
+              <Box>
+                <ListItem key={item.text}>
                   <ListItemButton
-                    onClick={() => router.push(item.path)}
+                    onClick={() => {
+                      router.push(item.path)
+                      setHash(item.path)
+                    }
+                    }
                     sx={{
-                      bgcolor: pathname === item.path ? "var(--accent)" : "transparent",
-                      color: pathname === item.path ? "var(--background)" : "var(--text)",
-                      "&:hover": pathname === item.path 
+                      borderRadius: 4,
+                      bgcolor: hash === item.path ? "var(--accent)" : "transparent",
+                      color: hash === item.path ? "var(--background)" : "var(--text)",
+                      "&:hover": hash === item.path 
                         ? { bgcolor: "rgba(10, 132, 255, 1)"}
                         : { bgcolor: "rgba(10, 132, 255, 0.2)" },
                     }}                    
                   >
-                    <ListItemIcon sx={{ color: pathname === item.path ? "var(--background)" : "var(--text)" }}>
+                    <ListItemIcon sx={{ color: hash === item.path ? "var(--background)" : "var(--text)" }}>
                       {item.icon}
                     </ListItemIcon>
                     <ListItemText primary={item.text} />
                   </ListItemButton>
                 </ListItem>
+              </Box>
             ))}
-        </List>
 
-        <Box className="pt-5 flex justify-evenly">
           {[
             { href: "https://github.com/diggygeorge", src: "/logos/github.svg", alt: "Github" },
             { href: "https://linkedin.com/in/daniel-t-george/", src: "/logos/linkedin.svg", alt: "LinkedIn" },
             { href: "https://mail.google.com/mail/u/0/?fs=1&to=dannygeorge527@gmail.com&tf=cm", src: "/logos/email.svg", alt: "Gmail" }
           ].map(({ href, src, alt }, index) => (
+            <Box className="p-4">
             <a key={index} href={href} target="_blank" rel="noopener noreferrer">
               <Image 
                 src={src} 
@@ -135,10 +93,8 @@ const Sidebar: React.FC = () => {
                 className={`transition-invert hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)] ${isDarkMode ? "invert-[1]" : ""}`}
               />
             </a>
+            </Box>
           ))}
-        </Box>
-
-      </Drawer>
     </Box>
   );
 }
