@@ -207,7 +207,7 @@ return (<div className="h-screen flex flex-col">
           ref={scrollRef} 
           sx={{ 
             display: 'flex', gap: 4, py: 1, overflow: 'hidden', 
-            width: {xs:364, sm:628, lg:892}, scrollSnapType: 'x mandatory',
+            width: {xs:364, sm:496, lg:892}, scrollSnapType: 'x mandatory',
             '& > *': { scrollSnapAlign: 'start' }, 
             '::-webkit-scrollbar': { display: 'none' } 
           }}

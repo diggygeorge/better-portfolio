@@ -32,7 +32,7 @@ const Sidebar: React.FC = () => {
     }, []);
 
     return (
-    <Box className="bg-[var(--background)] transition-colors duration-300 ease-in-out top-0 fixed flex flex-wrap justify-center w-full h-[128px] lg:h-[64px] z-50">
+    <Box className="bg-[var(--background)] transition-colors duration-300 ease-in-out top-0 fixed flex flex-wrap justify-center w-full xs:h-[192px] sm:h-[128px] lg:h-[64px] z-50">
       <div className="text-center">
         <Typography
           sx={{ 
@@ -41,7 +41,8 @@ const Sidebar: React.FC = () => {
             color: "var(--text)", 
             lineHeight: "60px",
             transition: "opacity 0.2s ease-in-out",
-            paddingRight: 4
+            paddingRight: 4,
+            paddingLeft: 4
           }}
         >
           Daniel George
@@ -78,7 +79,8 @@ const Sidebar: React.FC = () => {
                 </ListItem>
               </Box>
             ))}
-
+          </div>
+          <div className="flex">
           {[
             { href: "https://github.com/diggygeorge", src: "/logos/github.svg", alt: "Github" },
             { href: "https://linkedin.com/in/daniel-t-george/", src: "/logos/linkedin.svg", alt: "LinkedIn" },
@@ -91,12 +93,12 @@ const Sidebar: React.FC = () => {
                 alt={alt} 
                 width={32}
                 height={32}
-                className={`transition-invert duration-200 hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)] ${isDarkMode ? "invert-[1]" : ""}`}
+                className={`min-w-[32px] transition-invert duration-200 hover:drop-shadow-[0_0_10px_rgba(10,162,255,0.8)] ${isDarkMode ? "invert-[1]" : ""}`}
               />
             </a>
             </Box>
           ))}
-      </div>
+        </div>
     </Box>
     
   );
