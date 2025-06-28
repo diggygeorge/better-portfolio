@@ -69,7 +69,7 @@ export default function Home() {
      if (scrollRef.current) {
        const scrollAmount = 100;
        scrollRef.current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
-       if (direction === "right" && x < logos.length - 3)
+       if (direction === "right" && x < logos.length - visibleLogos)
        {
         x++;
        }
@@ -81,7 +81,23 @@ export default function Home() {
      }
    };
 
+    const [width, setWidth] = useState(0)
+    const [visibleLogos, setVisibleLogos] = useState(3)
+
    useEffect(() => {
+    setWidth(window.innerWidth);
+   })
+
+   useEffect(() => {
+      if (width < 640) {
+        setVisibleLogos(3)
+      }
+      if (width >= 640) {
+        setVisibleLogos(5)
+      }
+      if (width > 1024) {
+        setVisibleLogos(7)
+      }
         const timer = setInterval(() => {
         if (rightVelocity)
         {
@@ -91,7 +107,7 @@ export default function Home() {
         {
             scroll("left");
         }
-        if (x >= logos.length - 3) // # of images - # of visible images
+        if (x >= logos.length - visibleLogos)
         {
             rightVelocity = false;
         }
@@ -207,7 +223,7 @@ return (<div className="h-screen flex flex-col">
           ref={scrollRef} 
           sx={{ 
             display: 'flex', gap: 4, py: 1, overflow: 'hidden', 
-            width: {xs:364, sm:496, lg:892}, scrollSnapType: 'x mandatory',
+            width: {xs: 364, md: 628, lg: 892}, scrollSnapType: 'x mandatory',
             '& > *': { scrollSnapAlign: 'start' }, 
             '::-webkit-scrollbar': { display: 'none' } 
           }}
