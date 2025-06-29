@@ -179,8 +179,9 @@ return (<div className="h-screen flex flex-col">
         </Typography>
       <Box className="flex flex-wrap justify-center gap-8 pb-7 z-8">
           {[ 
-          { img: "/nutritionimg.png", title: "Dream Journal", desc: "CRUD App to document your dreams and anonymously see others publicly.", stack: "Supabase, Next.js, Typescript", link: "https://dream-journal-drab.vercel.app/" },
-          { img: "/nutritionimg.png", title: "MyFitnessTerrier", desc: "Nutrition calculator for all dining halls at Boston University.", stack: "Next.js, TypeScript, MongoDB", link: "https://bu-nutrition.vercel.app/" },
+          { img: "/dreamjournalimg.png", title: "Dream Journal", desc: "CRUD App to document your dreams and anonymously see others publicly.", stack: "Supabase, Next.js, Typescript", link: "https://dream-journal-drab.vercel.app/" },
+          { img: "/nutritionimg.png", title: "MyFitnessTerrier", desc: "Nutrition calculator for all dining halls at Boston University.", stack: "Python, Next.js, TypeScript, MongoDB", link: "https://bu-nutrition.vercel.app/" },
+          { img: "/incomeimg.png", title: "Global Income Score", desc: "How well off are you in a certain location in the US?", stack: "Express.js, Node.js, React.js, MySQL", link: "https://github.com/EXP47/global-income-score/" },
           { img: "/steamroller.png", title: "Steamroller", desc: "Recommends additional games to waste your life on.", stack: "Next.js, Typescript", link: "https://steamroller.vercel.app/" }
         ].map((project, idx) => (
           <Box 
