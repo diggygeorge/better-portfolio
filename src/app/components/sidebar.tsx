@@ -14,6 +14,11 @@ const Sidebar: React.FC = () => {
 
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [hash, setHash] = useState("#home")
+    const [manualNav, setManualNav] = useState(false);
+
+    useEffect(() => {
+
+    })
 
     useEffect(() => {
       const timer = setInterval(() => {
@@ -30,6 +35,27 @@ const Sidebar: React.FC = () => {
 
       return () => clearInterval(timer);
     }, []);
+
+    useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+
+        const visible = entries.find(entry => entry.isIntersecting);
+        if (visible && !manualNav) {
+          const sectionId = visible.target.id;
+          setHash(`#${sectionId}`);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const sectionIds = ["home", "projects", "resume"];
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
     return (
     <Box className="bg-[var(--background)] transition-colors duration-300 ease-in-out top-0 fixed flex flex-wrap justify-center w-full xs:h-[192px] sm:h-[128px] lg:h-[64px] z-50">
@@ -58,8 +84,11 @@ const Sidebar: React.FC = () => {
                 <ListItem disablePadding>
                   <ListItemButton
                     onClick={() => {
+                      setManualNav(true);
                       router.push(item.path)
                       setHash(item.path)
+                      document.getElementById(item.path.replace("#",""))?.scrollIntoView({ behavior: "smooth" });
+                      setTimeout(() => setManualNav(false), 1000);
                     }
                     }
                     sx={{

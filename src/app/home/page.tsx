@@ -1,7 +1,7 @@
 "use client";
 import Sidebar from "../components/sidebar";
 import Toggle from "../components/toggle";
-import {Divider} from '@mui/material'
+import FadeInSection from "../components/fadeinsection";
 import {Box, Typography, Button} from '@mui/material';
 import {useState, useEffect, useRef} from 'react';
 import {ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
@@ -173,10 +173,10 @@ return (<div className="h-screen flex flex-col">
       component="main"
       sx={{ flexGrow: 1, p: {xs: 2, md:3}, textAlign: "center" }}
     >
-      <Typography sx={{ marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: {xs: "1.25rem", lg:"2rem"} }}>
-        Here are my projects so far. More to come!
-      </Typography>
-
+      <FadeInSection delay={200}>
+        <Typography sx={{ marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: {xs: "1.25rem", lg:"2rem"} }}>
+          Here are my projects so far. More to come!
+        </Typography>
       <Box className="flex flex-wrap justify-center gap-8 pb-7 z-8">
           {[ 
           { img: "/nutritionimg.png", title: "Dream Journal", desc: "CRUD App to document your dreams and anonymously see others publicly.", stack: "Supabase, Next.js, Typescript", link: "https://dream-journal-drab.vercel.app/" },
@@ -205,10 +205,10 @@ return (<div className="h-screen flex flex-col">
         ))}
         
       </Box>
+      </FadeInSection>
 
-      <Divider sx={{ bgcolor: "var(--text)" }} />
 
-      {/* Skills Section */}
+      <FadeInSection delay={200}>
       <Typography variant="h4" sx={{ fontFamily: "Montserrat", paddingTop: "20px", marginBottom: "10px", color: "var(--text)" }}>
         Skills:
       </Typography>
@@ -243,11 +243,14 @@ return (<div className="h-screen flex flex-col">
           className="cursor-pointer text-gray-500 hover:text-[#0A84FF] transition-colors duration-300 ease-in-out"
         />
       </Box>
+      </FadeInSection>
     </Box>
   </Box>
 </div>
 <div id="resume" className="lg:pt-[100px]">
+  <FadeInSection delay={200}>
       <Box sx={{display: "flex", bgcolor: "transparent", color: "var(--text)" }}>
+        
             <Box
           component="main"
           sx={{
@@ -283,6 +286,7 @@ return (<div className="h-screen flex flex-col">
             </Box>
         </Box>
       </Box>
+      </FadeInSection>
 </div>
 </div>
 )}
