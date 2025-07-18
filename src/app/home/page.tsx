@@ -271,7 +271,7 @@ return (<div className="h-screen flex flex-col">
                   <iframe
                     className="w-full aspect-[8.5/11] rounded-lg shadow-lg"
                     title="resume"
-                    src="/resume/danielgeorgesweresume.pdf"
+                    src="/resume/danielthomasresume.pdf"
                     allow="autoplay"
                     style={{
                       backgroundColor: "#0A0A0A",
