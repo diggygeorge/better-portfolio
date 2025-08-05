@@ -13,7 +13,7 @@ export default function Home() {
   
   const quotes: string[][] =
 [["Welcome!  Whether you're a recruiter or just someone checking my LinkedIn or GitHub, I believe job applications don’t tell the whole story—so here I aim to illustrate mine.", "/gallery/welcomepart.jpg"],
-["Let’s start with introductions. My name is Daniel George, and I’m an undergraduate at Boston University, majoring in Mathematics and Computer Science.", "/gallery/college.jpg"],
+["Let’s start with introductions. My name is Danny, and I’m an undergraduate at Boston University, majoring in Mathematics and Computer Science.", "/gallery/college.jpg"],
 ["I've always been passionate about math—so much so that I used to have a list of numbers hanging in my bedroom!", "/gallery/kid.jpg"],
 ["Now, I’m taking my love of problem solving by exploring software engineering and mathematics. (Hint: Check out my projects!)", "/gallery/ai.jpg"],
 ["God has and will always be first in my life.  I love finding new ways to serve him: in and out of church.", "/gallery/church.jpg"],
@@ -181,7 +181,7 @@ return (<div className="h-screen flex flex-col">
           {[ 
           { img: "/dreamjournalimg.png", title: "Dream Journal", desc: "CRUD App to document your dreams and anonymously see others publicly.", stack: "Supabase, Next.js, Typescript", link: "https://dream-journal-drab.vercel.app/" },
           { img: "/nutritionimg.png", title: "MyFitnessTerrier", desc: "Nutrition calculator for all dining halls at Boston University.", stack: "Python, Next.js, TypeScript, MongoDB", link: "https://bu-nutrition.vercel.app/" },
-          { img: "/incomeimg.png", title: "Global Income Score", desc: "How well off are you in a certain location in the world?", stack: "Express.js, Node.js, Vite, MySQL", link: "https://global-income-score-mu.vercel.app/" },
+          { img: "/incomeimg.png", title: "Global Income Score", desc: "How well off are you in a certain location in the world?", stack: "MySQL, Supabase, Express.js, Node.js, Vite", link: "https://global-income-score-mu.vercel.app/" },
           { img: "/steamroller.png", title: "Steamroller", desc: "Recommends additional games to waste your life on.", stack: "Next.js, Typescript", link: "https://steamroller.vercel.app/" }
         ].map((project, idx) => (
           <Box 
@@ -283,7 +283,7 @@ return (<div className="h-screen flex flex-col">
               </div>
             </Box>
             <Box className="text-center pt-[20px]">
-              <Button variant="contained" startIcon={<DownloadIcon/>} target="_blank" href="/resume/danielgeorgeresume.pdf" className="m-auto">Download</Button>
+              <Button variant="contained" startIcon={<DownloadIcon/>} target="_blank" href="/resume/danielthomasresume.pdf" className="m-auto">Download</Button>
             </Box>
         </Box>
       </Box>

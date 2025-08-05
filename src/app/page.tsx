@@ -14,7 +14,7 @@ export default function Home() {
         <ParticleBackground/>
         <Toolbar/>
         <Typography sx={{justifyContent: "center", textAlign: "center", fontSize: "5rem", color: 'E0E0E0', fontFamily: "Grotesk, sans-serif"}}>
-            Daniel George
+            Daniel Thomas
         </Typography>
         <Typewriter/>
         <Stack spacing={5} direction="row" sx={{justifyContent: "center", marginTop: "200px"}}>
