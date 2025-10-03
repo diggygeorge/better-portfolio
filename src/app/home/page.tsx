@@ -43,6 +43,8 @@ export default function Home() {
   const logos: string[] = [
         "/logos/python.svg",
         "/logos/java.svg",
+        "/logos/springboot.svg",
+        "/logos/go.svg",
         "/logos/ocaml.svg",
         "/logos/supabase.svg",
         "/logos/flask.svg",
@@ -51,14 +53,21 @@ export default function Home() {
         "/logos/javascript.png",
         "/logos/typescript.svg",
         "/logos/react.svg",
+        "/logos/node.svg",
+        "/logos/next.svg",
         "/logos/express.svg",
         "/logos/tailwind.svg",
         "/logos/mongodb.svg",
-        "/logos/mysql.svg"
+        "/logos/mysql.svg",
+        "/logos/postgre.svg",
+        "/logos/docker.svg",
+        "/logos/gcp.svg",
+        "/logos/figma.svg",
+
       ];
 
    const titles : string[] =
-   ["Python", "Java", "OCaml", "Supabase", "Flask", "HTML", "CSS", "JavaScript", "TypeScript", "React", "Express.js", "Tailwind CSS", "MongoDB", "MySQL"]
+   ["Python", "Java", "Spring Boot", "Go", "OCaml", "Supabase", "Flask", "HTML", "CSS", "JavaScript", "TypeScript", "React", "Node.js", "Next.js", "Express.js", "Tailwind CSS", "MongoDB", "MySQL", "PostgreSQL", "Docker", "Google Cloud Platform", "Figma"]
 
    let x = 0;
    let rightVelocity = true;
@@ -174,7 +183,7 @@ return (<div className="h-screen flex flex-col">
       sx={{ flexGrow: 1, p: {xs: 2, md:3}, textAlign: "center" }}
     >
       <FadeInSection delay={200}>
-        <Typography sx={{ marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: {xs: "1.25rem", lg:"2rem"} }}>
+        <Typography sx={{ marginBottom: 2, fontSize: {xs: "1.25rem", lg:"2rem"} }}>
           Here are my projects so far. More to come!
         </Typography>
       <Box className="flex flex-wrap justify-center gap-8 pb-7 z-8">
@@ -210,7 +219,7 @@ return (<div className="h-screen flex flex-col">
 
 
       <FadeInSection delay={200}>
-      <Typography variant="h4" sx={{ fontFamily: "Montserrat", paddingTop: "20px", marginBottom: "10px", color: "var(--text)" }}>
+      <Typography variant="h4" sx={{ paddingTop: "20px", marginBottom: "10px", color: "var(--text)" }}>
         Skills:
       </Typography>
 
@@ -262,7 +271,7 @@ return (<div className="h-screen flex flex-col">
             transition: "colors 0.3s ease-in-out"
           }}
         >
-            <Typography sx={{ textAlign: "center", marginBottom: 2, fontFamily: "Montserrat", fontWeight: "bold", fontSize: "2rem" }}>
+            <Typography sx={{ textAlign: "center", marginBottom: 2, fontSize: "2rem" }}>
               Here is my resume!
             </Typography>
             <Box textAlign="center">
