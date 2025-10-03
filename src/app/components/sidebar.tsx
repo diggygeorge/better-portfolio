@@ -71,7 +71,7 @@ const Sidebar: React.FC = () => {
             paddingLeft: 4
           }}
         >
-          Daniel George
+          Daniel Thomas
         </Typography>
       </div>
       <div className="flex justify-center">
@@ -113,7 +113,7 @@ const Sidebar: React.FC = () => {
           {[
             { href: "https://github.com/diggygeorge", src: "/logos/github.svg", alt: "Github" },
             { href: "https://linkedin.com/in/daniel-t-george/", src: "/logos/linkedin.svg", alt: "LinkedIn" },
-            { href: "https://mail.google.com/mail/u/0/?fs=1&to=dannygeorge527@gmail.com&tf=cm", src: "/logos/email.svg", alt: "Gmail" }
+            { href: "https://mail.google.com/mail/u/0/?fs=1&to=diggyzar@bu.edu&tf=cm", src: "/logos/email.svg", alt: "Gmail" }
           ].map(({ href, src, alt }, index) => (
             <Box key={index} className="p-4">
             <a href={href} target="_blank" rel="noopener noreferrer">
