@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Play } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 
 interface ProjectCardProps {
@@ -14,6 +14,7 @@ interface ProjectCardProps {
   tech: string[];
   github?: string;
   demo?: string;
+  youtube?: string;
 }
 
 export default function ProjectCard({
@@ -24,6 +25,7 @@ export default function ProjectCard({
   tech,
   github,
   demo,
+  youtube
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -80,6 +82,13 @@ export default function ProjectCard({
               <Button asChild variant="default" size="sm" className="text-xs">
                 <a href={demo} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4 mr-1" /> Live Demo
+                </a>
+              </Button>
+            )}
+            {youtube && (
+              <Button asChild variant="destructive" size="sm" className="text-xs">
+                <a href={youtube} target="_blank" rel="noopener noreferrer">
+                  <Play className="w-4 h-4 mr-1" /> YouTube
                 </a>
               </Button>
             )}

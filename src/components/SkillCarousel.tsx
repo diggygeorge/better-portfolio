@@ -52,7 +52,7 @@ export default function SkillsCarousel() {
     "GCP", "Figma",
   ];
 
-  const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: false }));
+  const plugin = React.useRef(Autoplay({ delay: 1500, stopOnInteraction: false }));
 
   return (
     <section
@@ -64,7 +64,7 @@ export default function SkillsCarousel() {
         </h2>
 
         <Carousel
-          opts={{ align: "start" }}
+          opts={{ align: "start", loop: true }}
           orientation="vertical"
           plugins={[plugin.current]}
           className="w-full"

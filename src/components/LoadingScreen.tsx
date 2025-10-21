@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils" // optional helper if using shadcn utils
 
 export default function LoadingScreen() {
   const messages = [
-    "Painting the backend...",
-    "Warming up the algorithms...",
-    "Compiling your awesomeness...",
-    "Almost ready to deploy..."
+    "Fetching the gallery...",
+    "Setting up the backend...",
+    "Compiling the projects...",
+    "Polishing the design..."
   ]
 
   const [progress, setProgress] = useState(0)

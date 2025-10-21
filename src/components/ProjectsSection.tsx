@@ -9,14 +9,14 @@ import whispersImg from "@/components/img/whisperimg.jpg"
 export default function ProjectsSection() {
   const projects = [
     {
-      image: dreamJournalImg,
-      alt: "Dream Journal app UI preview showing dream log entries",
-      title: "Dreamcatchers",
-      description:
-        "Document your dreams and anonymously see others publicly.",
-      tech: ["Supabase", "Next.js", "TypeScript"],
-      github: "https://github.com/diggygeorge/dream-journal/",
-      demo: "https://dream-journal-drab.vercel.app/",
+      image: whispersImg,
+      alt: "Whispers app preview showing map-based story discovery",
+      title: "Whispers",
+      description: "Find stories where you stand.",
+      tech: ["Next.js", "React", "Prisma ORM", "Supabase", "Google Maps API"],
+      github: "https://github.com/rohitmandapati/whispers/",
+      demo: "https://whispers-one.vercel.app/",
+      youtube: "https://youtu.be/Ru7j08XEiTI"
     },
     {
       image: nutritionImg,
@@ -27,6 +27,7 @@ export default function ProjectsSection() {
       tech: ["Python", "Next.js", "TypeScript", "MongoDB"],
       github: "https://github.com/diggygeorge/myfitnessterrier/",
       demo: "https://bu-nutrition.vercel.app/",
+      youtube: "https://www.youtube.com/watch?v=E_UhFZvgSTU"
     },
     {
       image: incomeImg,
@@ -37,6 +38,17 @@ export default function ProjectsSection() {
       tech: ["MySQL", "Supabase", "Express.js", "Node.js", "Vite"],
       github: "https://github.com/diggygeorge/global-income-score/",
       demo: "https://global-income-score-mu.vercel.app/",
+      youtube: "https://www.youtube.com/watch?v=0_ViSrEWkiM"
+    },
+    {
+      image: dreamJournalImg,
+      alt: "Dream Journal app UI preview showing dream log entries",
+      title: "Dreamcatchers",
+      description:
+        "Document your dreams and anonymously see others.",
+      tech: ["Supabase", "Next.js", "TypeScript"],
+      github: "https://github.com/diggygeorge/dream-journal/",
+      demo: "https://dream-journal-drab.vercel.app/",
     },
     {
       image: lovaslideImg,
@@ -45,15 +57,7 @@ export default function ProjectsSection() {
       description: "AI-generates a completely animated presentation!",
       tech: ["FastAPI", "Next.js", "Typescript", "Web Speech API", "SerpAPI"],
       github: "https://github.com/diggygeorge/lovaslide/",
-    },
-    {
-      image: whispersImg,
-      alt: "Whispers app preview showing map-based story discovery",
-      title: "Whispers",
-      description: "Find stories where you stand.",
-      tech: ["Next.js", "React", "Prisma ORM", "Supabase", "Google Maps API"],
-      github: "https://github.com/rohitmandapati/whispers/",
-      demo: "https://whispers-one.vercel.app/",
+      youtube: "https://youtu.be/yFuwiUV3AHQ"
     },
   ];
 

@@ -103,6 +103,7 @@ export default function PhotoGallerySection() {
     <section id="gallery" className="py-20">
       <Carousel
         plugins={[plugin.current]}
+        opts={{ align: "start", loop: true }}
         className="w-full max-w-4xl mx-auto"
       >
         <CarouselContent>

@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Star, Sparkles } from "lucide-react";
+import { Moon, Sun, Star, Droplet } from "lucide-react";
 import { JSX, useEffect, useState, useMemo, useCallback } from "react";
 
 export function ThemeToggle() {
@@ -17,7 +17,7 @@ export function ThemeToggle() {
       light: <Sun className="h-[1.2rem] w-[1.2rem]" />,
       dark: <Moon className="h-[1.2rem] w-[1.2rem]" />,
       sepia: <Star className="h-[1.2rem] w-[1.2rem]" />,
-      galaxy: <Sparkles className="h-[1.2rem] w-[1.2rem]" />,
+      galaxy: <Droplet className="h-[1.2rem] w-[1.2rem]" />,
     }),
     []
   );

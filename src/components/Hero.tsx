@@ -18,7 +18,6 @@ export default function Hero() {
       >
         Daniel Thomas
       </motion.h1>
-
       {/* Tagline */}
       <motion.p
         initial={{ opacity: 0, y: 20 }}
