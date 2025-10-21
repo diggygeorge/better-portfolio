@@ -1,26 +1,51 @@
-"use client";
-import {Stack, Toolbar, Typography} from '@mui/material';
-import "../app/globals.css";
-import {useRouter} from "next/navigation";
-import ParticleBackground from './components/particlebackground'
-import Typewriter from './components/typewriter'
+"use client"
 
-export default function Home() {
+import { useState, useEffect } from "react"
+import LoadingScreen from "@/components/LoadingScreen"
+import Hero from "@/components/Hero"
+import PhotoGallerySection from "@/components/PhotoGallerySection"
+import ProjectsSection from "@/components/ProjectsSection"
+import ExperienceSection from "@/components/ExperienceSection"
+import SkillsCarousel from "@/components/SkillCarousel"
+import ResumeSection from "@/components/ResumeSection"
+import { ThemeToggle } from "@/components/ThemeToggle"
+import ContactSection from "@/components/ContactSection"
+import Navbar from "@/components/Navbar"
 
-  const router = useRouter();
-  
+export default function HomePage() {
+  const [loadingDone, setLoadingDone] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoadingDone(true), 6000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (!loadingDone) return <LoadingScreen />
+
   return (
-    <>
-        <ParticleBackground/>
-        <Toolbar/>
-        <Typography sx={{justifyContent: "center", textAlign: "center", fontSize: "5rem", color: 'E0E0E0', fontFamily: "Grotesk, sans-serif"}}>
-            Daniel Thomas
-        </Typography>
-        <Typewriter/>
-        <Stack spacing={5} direction="row" sx={{justifyContent: "center", marginTop: "200px"}}>
-        <button className="bg-transparent hover:bg-[#1a1a1a] text-white text-3xl font-semibold py-2 px-4 border border-gray-400 rounded-3xl shadow" onClick={() => router.push('home')}>
-            Go!
-        </button>
-        </Stack>
-    </>
-  )};
+    <main className="text-white scroll-smooth">
+      <Navbar />
+      <ThemeToggle />
+
+      {/* ---- 2-column layout ---- */}
+      <div className="flex flex-col md:flex-row min-h-screen">
+        {/* Left side: pinned SkillsCarousel */}
+        <div className="z-20 md:w-1/10 lg:w-1/8 hidden md:block sticky top-0 h-screen overflow-hidden border-r border-neutral-800">
+          <div className="flex justify-center items-center h-full">
+            <SkillsCarousel />
+          </div>
+        </div>
+
+        {/* Right side: scrollable content */}
+        <div className="md:w-9/10 lg:w-7/8 px-6 md:px-10 overflow-x-hidden">
+          <Hero />
+          <PhotoGallerySection />
+          <ExperienceSection />
+          <ProjectsSection />
+          <ResumeSection />
+          <ContactSection />
+        </div>
+      </div>
+    </main>
+  )
+}
