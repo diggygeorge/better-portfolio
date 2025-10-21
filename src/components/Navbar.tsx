@@ -54,7 +54,7 @@ export default function Navbar() {
                 <NavigationMenuLink
                   onClick={() => scrollToSection(s.id)}
                   className={`cursor-pointer text-sm font-medium transition-colors ${
-                    activeSection === s.id ? "text-blue-400" : "hover:text-blue-300"
+                    activeSection === s.id ? "text-blue-500" : "hover:text-blue-300"
                   }`}
                 >
                   {s.label}
