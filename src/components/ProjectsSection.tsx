@@ -30,6 +30,17 @@ export default function ProjectsSection() {
       youtube: "https://www.youtube.com/watch?v=E_UhFZvgSTU"
     },
     {
+      image: "",
+      alt: "No image provided.",
+      title: "Raft Consensus Algorithm",
+      description:
+        "Implemented a distributed system with fault tolerance based on the Raft Consensus Protocol.",
+      tech: ["Golang"],
+      github: "",
+      demo: "",
+      youtube: ""
+    },
+    {
       image: incomeImg,
       alt: "Global Income Score interface comparing income values worldwide",
       title: "Global Income Score",

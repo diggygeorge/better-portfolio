@@ -9,9 +9,9 @@ export default function ResumeSection() {
       {/* Embedded PDF */}
       <div className="w-full max-w-4xl h-[800px] shadow-xl rounded-2xl overflow-hidden">
         <iframe
-          src="/resume/danielthomassweresume.pdf" // Place your PDF in the `public` folder
+          src="/resume/raft/danielthomassweresume.pdf" // Place your PDF in the `public` folder
           className="w-full h-full border-0"
-          title="Daniel George Resume"
+          title="Daniel Thomas Resume"
         />
       </div>
 
