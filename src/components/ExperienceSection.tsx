@@ -52,7 +52,7 @@ export default function ExperienceSection() {
             viewport={{ once: true }}
             className="w-full sm:w-[340px]"
           >
-            <Card className="overflow-hidden shadow-md rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-background transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+            <Card className="overflow-hidden shadow-md rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-background transition-all duration-300 hover:shadow-lg hover:scale-[1.05]">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold text-foreground">
                   {exp.title}

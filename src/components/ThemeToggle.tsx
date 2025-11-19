@@ -29,57 +29,92 @@ export function ThemeToggle() {
     const style = document.createElement("style");
     style.id = "custom-theme-styles";
     style.textContent = `
-      html.custom-sepia, html.custom-sepia body {
-        background-color: #f4ecd8 !important;
-        color: #5b4636 !important;
-      }
-      html.custom-sepia .bg-background { background-color: #f4ecd8 !important; }
-      html.custom-sepia .card, html.custom-sepia .rounded-2xl, html.custom-sepia .shadow-lg {
-        background-color: #fff8ec !important;
-        color: #5b4636 !important;
-      }
+    /* 🌤️ Light Theme Accent */
+    html.light, html.light body {
+      background: linear-gradient(160deg, #ffffff 0%, #f5f7ff 100%) !important;
+      color: #1a1a1a !important;
+    }
+    html.light .bg-background,
+    html.light .card,
+    html.light .rounded-2xl,
+    html.light .shadow-lg {
+      background-color: rgba(255, 255, 255, 0.9) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      color: #1a1a1a !important;
+    }
 
-      html.custom-galaxy, html.custom-galaxy body {
-        background: radial-gradient(rgba(0, 20, 102, 1), #000020 80%) !important;
-        color: #ffffff !important;
-        overflow-x: hidden;
-      }
-      html.custom-galaxy .bg-background,
-      html.custom-galaxy .card,
-      html.custom-galaxy .rounded-2xl,
-      html.custom-galaxy .shadow-lg {
-        background-color: rgba(255, 255, 255, 0.05) !important;
-        color: #ffffff !important;
-        border-color: rgba(255, 255, 255, 0.2) !important;
-      }
+    /* 🌑 Dark Theme Accent */
+    html.dark, html.dark body {
+      background: radial-gradient(circle at 20% 30%, #1a1a1a, #0e0e0e 80%) !important;
+      color: #e5e5e5 !important;
+    }
+    html.dark .bg-background,
+    html.dark .card,
+    html.dark .rounded-2xl,
+    html.dark .shadow-lg {
+      background-color: rgba(40, 40, 40, 0.9) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      color: #e5e5e5 !important;
+    }
 
-      @keyframes twinkle {
-        0%, 100% { opacity: 0.8; transform: scale(1); }
-        50% { opacity: 0.3; transform: scale(1.2); }
-      }
+    /* ☕ Sepia Mode */
+    html.custom-sepia, html.custom-sepia body {
+      background-color: #f4ecd8 !important;
+      color: #5b4636 !important;
+    }
+    html.custom-sepia .bg-background {
+      background-color: #f4ecd8 !important;
+    }
+    html.custom-sepia .card, html.custom-sepia .rounded-2xl, html.custom-sepia .shadow-lg {
+      background-color: #fff8ec !important;
+      color: #5b4636 !important;
+    }
 
-      html.custom-galaxy::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background:
-          radial-gradient(2px 2px at 20% 40%, white, transparent),
-          radial-gradient(1px 1px at 80% 60%, white, transparent),
-          radial-gradient(2px 2px at 50% 90%, white, transparent),
-          radial-gradient(1px 1px at 30% 20%, white, transparent),
-          radial-gradient(2px 2px at 70% 10%, white, transparent);
-        background-repeat: repeat;
-        animation: twinkle 6s infinite ease-in-out alternate;
-        opacity: 0.6;
-        pointer-events: none;
-        z-index: -1;
-      }
+    /* 🌌 Galaxy Mode */
+    html.custom-galaxy, html.custom-galaxy body {
+      background: radial-gradient(rgba(0, 20, 102, 1), #000020 80%) !important;
+      color: #ffffff !important;
+      overflow-x: hidden;
+    }
+    html.custom-galaxy .bg-background,
+    html.custom-galaxy .card,
+    html.custom-galaxy .rounded-2xl,
+    html.custom-galaxy .shadow-lg {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
+    }
 
-      html.custom-galaxy button svg {
-        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
-      }
-    `;
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(1.2); }
+    }
+
+    html.custom-galaxy::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(2px 2px at 20% 40%, white, transparent),
+        radial-gradient(1px 1px at 80% 60%, white, transparent),
+        radial-gradient(2px 2px at 50% 90%, white, transparent),
+        radial-gradient(1px 1px at 30% 20%, white, transparent),
+        radial-gradient(2px 2px at 70% 10%, white, transparent);
+      background-repeat: repeat;
+      animation: twinkle 6s infinite ease-in-out alternate;
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    html.custom-galaxy button svg {
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
+    }
+  `;
+
     document.head.appendChild(style);
   }, []);
 

@@ -9,7 +9,7 @@ export default function ResumeSection() {
       {/* Embedded PDF */}
       <div className="w-full max-w-4xl h-[800px] shadow-xl rounded-2xl overflow-hidden">
         <iframe
-          src="/resume/raft/danielthomassweresume.pdf" // Place your PDF in the `public` folder
+          src="/resume/raft/DANIEL_RESUME.pdf" // Place your PDF in the `public` folder
           className="w-full h-full border-0"
           title="Daniel Thomas Resume"
         />
@@ -17,7 +17,7 @@ export default function ResumeSection() {
 
       <div className="mt-8 flex gap-4 text-foreground">
         <Button asChild>
-          <a href="/resume/danielthomassweresume.pdf" download>
+          <a href="/resume/raft/DANIEL_RESUME.pdf" download>
             Download PDF
           </a>
         </Button>
