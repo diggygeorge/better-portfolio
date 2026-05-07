@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Linkedin, Github, Youtube } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
