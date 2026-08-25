@@ -5,9 +5,18 @@ import nutritionImg from "@/components/img/nutritionimg.png";
 import incomeImg from "@/components/img/incomeimg.png";
 import lovaslideImg from "@/components/img/lovaslideimg.png"
 import whispersImg from "@/components/img/whisperimg.jpg"
+import gdImg from "@/components/img/gdimg.png"
 
 export default function ProjectsSection() {
   const projects = [
+    {
+      image: gdImg,
+      alt: "Mod in Geometry Dash that shows the game's best players and the hardest levels",
+      title: "Pointercrate Leaderboard",
+      description: "Shows the game's best players and the hardest levels",
+      tech: ["C++", "Geode SDK", "Cocos2d-x"],
+      github: "https://github.com/diggygeorge/pointercratelb"
+    },
     {
       image: whispersImg,
       alt: "Whispers app preview showing map-based story discovery",

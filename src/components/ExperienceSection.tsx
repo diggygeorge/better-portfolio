@@ -9,9 +9,21 @@ export default function ExperienceSection() {
       title: "Incoming Software Engineering Intern",
       org: "Boston University Information Services & Technology",
       location: "Boston, MA",
-      date: "Oct. 2025",
+      date: "May 2026 - Aug. 2026",
       bullets: [
-        "Selected for upcoming internship in Client Technology Engineering, focusing on scalable software and data infrastructure within Boston University’s IT organization.",
+        "Developed a Python and SQL account-identification pipeline on Snowflake achieving a 77% company match rate to resolve 24,000+ unique monthly visitors into 6,000+ identifiable accounts.",
+        "Engineered an automated data enrichment system using dbt, processing 110,000+ anonymous monthly web interactions to power 4 downstream AI platforms and scale internal analytics operations",
+        "Navigated the full software lifecycle by containerizing an internal Streamlit application and deploying it on OpenShift/Kubernetes, delivering a self-serve UI for cross-functional stakeholders to query account intent"
+      ],
+    },
+    {
+      title: "Software Engineer",
+      org: "Hack4Impact BU",
+      location: "Remote",
+      date: "Jan. 2026 - Present",
+      bullets: [
+        "Architected secure REST APIs using Next.js, Prisma, and Supabase, implementing role-based authentication and mutating endpoints to manage event schedules and inventory for the Campus Closet platform",
+        "Accelerated project delivery by developing a type-safe frontend for the Bridge OTW bed-allocation platform using TypeScript, Next.js, and Tailwind CSS, rapidly integrating Supabase backends via Jira-tracked Git workflows"
       ],
     },
     {
