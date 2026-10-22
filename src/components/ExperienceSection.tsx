@@ -6,14 +6,15 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 export default function ExperienceSection() {
   const experiences = [
     {
-      title: "Incoming Software Engineering Intern",
-      org: "Boston University Information Services & Technology",
-      location: "Boston, MA",
+      title: "Software Engineering Intern",
+      org: "Red Hat - Data and AI",
+      location: "Lowell, MA",
       date: "May 2026 - Aug. 2026",
       bullets: [
-        "Developed a Python and SQL account-identification pipeline on Snowflake achieving a 77% company match rate to resolve 24,000+ unique monthly visitors into 6,000+ identifiable accounts.",
-        "Engineered an automated data enrichment system using dbt, processing 110,000+ anonymous monthly web interactions to power 4 downstream AI platforms and scale internal analytics operations",
-        "Navigated the full software lifecycle by containerizing an internal Streamlit application and deploying it on OpenShift/Kubernetes, delivering a self-serve UI for cross-functional stakeholders to query account intent"
+        "Created a company-identification pipeline using Python and SQL for URL normalization and multi-dataset relational joins to deterministically match domains, achieving a 77% company match rate to resolve 110,000+ anonymous monthly web interactions into 6,000+ companies",
+        "Aggregated anonymous web traffic in Snowflake, implementing SQL regex and pattern matching on page types and visit frequency to categorize raw hits into buying signals across 40 Red Hat products",
+        "Containerized an internal Streamlit application and deployed it on OpenShift/Kubernetes, delivering a self-serve UI that reduced data querying to under 60s for cross-disciplinary engineering and marketing teams",
+        "Engineered an aggregate data product using dbt on GitLab to power 3 downstream AI platforms and scale internal analytics operations"
       ],
     },
     {
@@ -23,7 +24,7 @@ export default function ExperienceSection() {
       date: "Jan. 2026 - Present",
       bullets: [
         "Architected secure REST APIs using Next.js, Prisma, and Supabase, implementing role-based authentication and mutating endpoints to manage event schedules and inventory for the Campus Closet platform",
-        "Accelerated project delivery by developing a type-safe frontend for the Bridge OTW bed-allocation platform using TypeScript, Next.js, and Tailwind CSS, rapidly integrating Supabase backends via Jira-tracked Git workflows"
+        "Accelerated project delivery by developing a frontend for the Bridge OTW bed-allocation platform using TypeScript, Next.js, and Tailwind CSS, rapidly integrating Supabase backends via Jira-tracked workflows"
       ],
     },
     {
