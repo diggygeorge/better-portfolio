@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *, .galaxy *, .ocean *));
 
 @theme inline {
   --color-background: var(--background);
@@ -110,6 +110,113 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+.galaxy {
+  --background: oklch(0.16 0.06 275);
+  --foreground: oklch(0.96 0.02 290);
+  --card: oklch(0.26 0.07 280 / 55%);
+  --card-foreground: oklch(0.96 0.02 290);
+  --popover: oklch(0.2 0.07 280);
+  --popover-foreground: oklch(0.96 0.02 290);
+  --primary: oklch(0.75 0.15 295);
+  --primary-foreground: oklch(0.18 0.06 280);
+  --secondary: oklch(0.3 0.08 285);
+  --secondary-foreground: oklch(0.96 0.02 290);
+  --muted: oklch(0.28 0.07 282);
+  --muted-foreground: oklch(0.78 0.05 290);
+  --accent: oklch(0.32 0.09 288);
+  --accent-foreground: oklch(0.96 0.02 290);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 15%);
+  --input: oklch(1 0 0 / 18%);
+  --ring: oklch(0.75 0.15 295);
+}
+
+.ocean {
+  --background: oklch(0.22 0.05 230);
+  --foreground: oklch(0.96 0.03 200);
+  --card: oklch(0.3 0.06 225 / 65%);
+  --card-foreground: oklch(0.96 0.03 200);
+  --popover: oklch(0.26 0.06 228);
+  --popover-foreground: oklch(0.96 0.03 200);
+  --primary: oklch(0.8 0.13 195);
+  --primary-foreground: oklch(0.2 0.05 230);
+  --secondary: oklch(0.34 0.07 222);
+  --secondary-foreground: oklch(0.96 0.03 200);
+  --muted: oklch(0.32 0.06 225);
+  --muted-foreground: oklch(0.8 0.05 205);
+  --accent: oklch(0.38 0.08 215);
+  --accent-foreground: oklch(0.96 0.03 200);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.85 0.08 200 / 18%);
+  --input: oklch(0.85 0.08 200 / 22%);
+  --ring: oklch(0.8 0.13 195);
+}
+
+/* Theme backgrounds */
+.light body {
+  background: linear-gradient(160deg, #ffffff 0%, #f5f7ff 100%) fixed;
+}
+
+.dark body {
+  background: radial-gradient(circle at 20% 30%, #1a1a1a, #0e0e0e 80%) fixed;
+}
+
+.galaxy body {
+  background: radial-gradient(ellipse at 50% 30%, #001466, #000020 80%) fixed;
+}
+
+.galaxy body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(1px 1px at 90px 120px, white, transparent),
+    radial-gradient(1.5px 1.5px at 160px 60px, white, transparent),
+    radial-gradient(1px 1px at 230px 180px, white, transparent),
+    radial-gradient(2px 2px at 300px 90px, white, transparent),
+    radial-gradient(1px 1px at 50px 240px, white, transparent);
+  background-size: 340px 280px;
+  animation: twinkle 6s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.8; }
+  to { opacity: 0.3; }
+}
+
+.ocean body {
+  background: linear-gradient(180deg, #0b4f6c 0%, #06324a 45%, #021526 100%) fixed;
+}
+
+.ocean body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 40% 25% at 30% 10%, rgb(120 220 255 / 0.18), transparent),
+    radial-gradient(ellipse 35% 20% at 75% 25%, rgb(120 255 230 / 0.12), transparent),
+    radial-gradient(ellipse 50% 30% at 50% 60%, rgb(80 180 255 / 0.08), transparent);
+  background-size: 200% 200%;
+  animation: caustics 18s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes caustics {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galaxy body::before,
+  .ocean body::before {
+    animation: none;
+  }
 }
 
 .text-outline-black {

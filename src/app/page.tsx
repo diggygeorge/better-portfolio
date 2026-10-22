@@ -23,14 +23,14 @@ export default function HomePage() {
   if (!loadingDone) return <LoadingScreen />
 
   return (
-    <main className="text-white scroll-smooth">
+    <main className="text-foreground scroll-smooth">
       <Navbar />
       <ThemeToggle />
 
       {/* ---- 2-column layout ---- */}
       <div className="flex flex-col md:flex-row min-h-screen">
         {/* Left side: pinned SkillsCarousel */}
-        <div className="z-20 md:w-1/10 lg:w-1/8 hidden md:block sticky top-0 h-screen overflow-hidden border-r border-neutral-800">
+        <div className="z-20 md:w-1/10 lg:w-1/8 hidden md:block sticky top-0 h-screen overflow-hidden border-r border-border">
           <div className="flex justify-center items-center h-full">
             <SkillsCarousel />
           </div>

@@ -42,7 +42,7 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-black/30 border-b border-white/10"
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-background/60 border-b border-border"
     >
       <div className="flex items-center justify-between px-6 py-3">
         <h1 className="text-lg font-semibold tracking-wide">Daniel Thomas</h1>

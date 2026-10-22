@@ -39,7 +39,7 @@ export default function ProjectCard({
       transition={{ type: "spring", stiffness: 150, damping: 12 }}
       className="w-[30%] max-w-2xl mx-auto"
     >
-      <Card className="overflow-hidden shadow-md rounded-2xl border border-neutral-200 dark:border-neutral-800 h-[460px] hover:shadow-lg transition-shadow">
+      <Card className="overflow-hidden shadow-md rounded-2xl border border-border h-[460px] hover:shadow-lg transition-shadow">
         {/* 🖼️ Image smaller in height */}
         <div className="relative w-full h-40">
           <Image

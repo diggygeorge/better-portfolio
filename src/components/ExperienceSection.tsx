@@ -62,8 +62,8 @@ export default function ExperienceSection() {
 
       <div className="relative max-w-5xl mx-auto pt-6">
         {/* Time axis */}
-        <div className="absolute top-2 bottom-0 left-4 md:left-1/2 w-0.5 -translate-x-1/2 bg-neutral-300 dark:bg-neutral-700" />
-        <ChevronUp className="absolute -top-2 left-4 md:left-1/2 -translate-x-1/2 w-5 h-5 text-neutral-400 dark:text-neutral-600" />
+        <div className="absolute top-2 bottom-0 left-4 md:left-1/2 w-0.5 -translate-x-1/2 bg-border" />
+        <ChevronUp className="absolute -top-2 left-4 md:left-1/2 -translate-x-1/2 w-5 h-5 text-muted-foreground" />
 
         <div className="space-y-8">
           {experiences.map((exp, i) => {
@@ -104,7 +104,7 @@ export default function ExperienceSection() {
                     viewport={{ once: true }}
                     className={`md:row-start-1 ${cardLeft ? "md:col-start-1" : "md:col-start-3"}`}
                   >
-                    <Card className="w-full overflow-hidden shadow-md rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-background transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+                    <Card className="w-full overflow-hidden shadow-md rounded-2xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                       <CardHeader>
                         <CardTitle className="text-lg font-semibold text-foreground">
                           {exp.title}
